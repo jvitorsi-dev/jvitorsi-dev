@@ -1,16 +1,80 @@
-## Hi there 👋
+<h1 align="center">👋 Hey there, I'm João Vitor Silva</h1>
 
-<!--
-**jvitorsi-dev/jvitorsi-dev** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<p align="center">
+  💻 <strong>.NET & Angular Developer</strong> passionate about building clean, scalable, and user-focused solutions.  
+  🚀 Skilled in REST APIs, SQL Server, and system integrations.  
+</p>
 
-Here are some ideas to get you started:
+---
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### 🌍 About Me
+
+I'm a software developer focused on creating **efficient, scalable, and elegant applications**.  
+I enjoy transforming complex ideas into simple, functional solutions — always guided by **clean code** and **solid architecture** principles.  
+
+Currently exploring **DevOps practices**, **TypeScript**, and **cloud technologies** to take my development workflow to the next level.  
+
+> _“Clean code always tells a clear story.”_
+
+---
+
+### 🧰 Tech Stack
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=dotnet,cs,angular,ts,js,html,css,sqlserver,git,github,azure,vscode,postman" />
+</p>
+
+---
+
+### 📂 Featured Projects
+
+| Project | Description | Stack |
+|----------|--------------|--------|
+| 🐾 **Pet Adoption API** | A .NET Core REST API for managing pet adoptions and user communication. | .NET Core · SQL Server · EF Core |
+| 💬 **Smart Communication App** | An Angular app that helps users express needs through smart visual cards. | Angular · TypeScript · REST API |
+| ☁️ **Cloud Sync Service** | Experimental project for automating API data sync between cloud services. | .NET · Azure · DevOps |
+
+> 🔗 Check out my repositories for more projects and experiments.
+
+---
+
+### 📊 GitHub Stats
+
+<p align="center">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=jvitorsi-dev&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" />
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=jvitorsi-dev&layout=compact&theme=tokyonight&hide_border=true" />
+</p>
+
+---
+
+### 🌱 Currently Learning
+- DevOps & CI/CD pipelines  
+- Advanced TypeScript patterns  
+- Cloud development (Azure & AWS)  
+- Clean Architecture in .NET  
+
+---
+
+### 📫 Contact Me
+
+<p align="center">
+  <a href="mailto:jvitorsi.dev@gmail.com">
+    <img src="https://img.shields.io/badge/Email-jvitorsi.dev%40gmail.com-red?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
+  <a href="https://www.linkedin.com/in/jvitorsi-dev" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-João%20Vitor%20Silva-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="https://github.com/jvitorsi-dev" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-jvitorsi--dev-000000?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</p>
+
+---
+
+### 🎵 Fun Fact
+
+When I'm not coding, you’ll probably find me listening to **Radiohead**, reading **philosophy**, or brainstorming new ideas for web apps.
+
+---
+
+⭐ _Thanks for stopping by! Feel free to explore my repositories._
