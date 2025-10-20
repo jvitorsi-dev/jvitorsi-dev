@@ -30,9 +30,7 @@ Currently exploring **DevOps practices**, **TypeScript**, and **cloud technologi
 
 | Project | Description | Stack |
 |----------|--------------|--------|
-| 🐾 **Pet Adoption API** | A .NET Core REST API for managing pet adoptions and user communication. | .NET Core · SQL Server · EF Core |
-| 💬 **Smart Communication App** | An Angular app that helps users express needs through smart visual cards. | Angular · TypeScript · REST API |
-| ☁️ **Cloud Sync Service** | Experimental project for automating API data sync between cloud services. | .NET · Azure · DevOps |
+| 🐾 **BrasilDATAAPI** | A .NET Core REST API for searching, aggregating, and analyzing Brazilian public data. | .NET Core · EF Core |
 
 > 🔗 Check out my repositories for more projects and experiments.
 
@@ -68,12 +66,6 @@ Currently exploring **DevOps practices**, **TypeScript**, and **cloud technologi
     <img src="https://img.shields.io/badge/GitHub-jvitorsi--dev-000000?style=for-the-badge&logo=github&logoColor=white" />
   </a>
 </p>
-
----
-
-### 🎵 Fun Fact
-
-When I'm not coding, you’ll probably find me listening to **Radiohead**, reading **philosophy**, or brainstorming new ideas for web apps.
 
 ---
 
