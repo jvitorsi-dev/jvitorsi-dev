@@ -40,6 +40,12 @@ I like owning the whole cycle — requirement → code → test → deploy → d
 
 * * *
 
+### 📊 GitHub Stats
+
+![](https://denvercoder1-github-readme-stats.vercel.app/api/top-langs/?username=jvitorsi-dev&layout=compact&theme=tokyonight&hide_border=true)
+
+* * *
+
 ### 🌱 Currently Learning
 
 - Event-driven patterns: **RabbitMQ / Kafka**, CQRS & Event Sourcing
