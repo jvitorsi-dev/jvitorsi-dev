@@ -1,34 +1,27 @@
 # João Vitor Silva
 
-**Desenvolvedor Backend / Fullstack .NET**  
-Atuação profissional em desenvolvimento e sustentação de software corporativo desde 2018.
+Desenvolvedor .NET | C#, ASP.NET Core, SQL Server, RabbitMQ, Docker
 
-Comecei na eletrônica pelo SENAI e construí minha trajetória em engenharia de software: desenvolvimento de portal corporativo na T-Systems, sistemas para o mercado securitário atendendo mais de 500 usuários internos na Vila Velha Seguros, consultoria autônoma desenvolvendo Web APIs em .NET, integrações e soluções web, e, atualmente, desenvolvimento e sustentação da plataforma corporativa SIGA na Prefeitura de Santo André.
+Comecei desmontando circuitos na eletrônica do SENAI e fui para software. Desde 2018 atuo com desenvolvimento: portal corporativo na T-Systems, sistemas de seguro atendendo 500+ usuários internos na Vila Velha Seguros (onde automatizei rotinas de dados em lote), consultoria autônoma entregando Web APIs e integrações, e atualmente o sistema corporativo SIGA na Prefeitura de Santo André.
 
-Gosto de acompanhar o ciclo inteiro: requisito → código → teste → deploy → documentação. Uso IA como apoio de produtividade, mas tenho como princípio técnico só comitar e subir código que compreendo e sustento plenamente.
+Gosto de acompanhar o ciclo inteiro: requisito → código → teste → deploy → sustentação. Uso ferramentas como Copilot e Claude como apoio de produtividade, mas tenho como regra não comitar código que eu não compreenda e não consiga defender tecnicamente.
 
----
+### Tecnologias
 
-### 🛠️ Tecnologias & Engenharia
+- **Backend:** C#, .NET 8 / .NET 6, ASP.NET Core Web API, Entity Framework Core, LINQ
+- **Bancos de dados:** SQL Server (Stored Procedures, índices, tuning), MongoDB
+- **Mensageria & Serviços:** RabbitMQ, Background Workers (Worker Services)
+- **Frontend:** Angular, TypeScript, JavaScript, HTML5/CSS3
+- **Qualidade & DevOps:** xUnit, Docker, Docker Compose, Git, GitHub Actions
 
-* **No que trabalho melhor:** C#, .NET (.NET 8 e .NET 6+), ASP.NET Core Web API, SQL Server (Stored Procedures, índices, tuning), RabbitMQ, Docker, Entity Framework Core, LINQ
-* **Frontend & Web:** Angular, TypeScript, JavaScript (ES6+), HTML5, CSS3, Bootstrap
-* **Qualidade & Práticas:** Clean Architecture, SOLID, Testes Automatizados (xUnit), GitHub Actions (CI)
-* **Expandindo stack:** PostgreSQL, Kafka, Cloud
+### Projetos
 
----
+- **[TaskProcessor](https://github.com/jvitorsi-dev/TaskProcessor)** — Processamento assíncrono de tarefas com RabbitMQ, Worker em segundo plano, MongoDB, testes com xUnit e CI no GitHub Actions.
+- **[EasyDelivery](https://github.com/jvitorsi-dev/EasyDelivery)** — Sistema de pedidos para restaurantes: API em camadas (ASP.NET Core), EF Core com SQL Server, autenticação JWT, integração com Mercado Pago e SPA em Angular.
+- **[BrasilDATAAPI](https://github.com/jvitorsi-dev/BrasilDATAAPI)** — API REST em .NET 8 que unifica consultas públicas de CEP (ViaCEP) e CNPJ (BrasilAPI) com DTOs tipados.
+- **[leads](https://github.com/jvitorsi-dev/leads)** — Formulário e integração de captura para corretora de seguros (projeto da consultoria).
 
-### 🚀 Repositórios em Destaque
+### Contato
 
-* **[TaskProcessor](https://github.com/jvitorsi-dev/TaskProcessor)** — API em .NET 8 com processamento assíncrono de tarefas via RabbitMQ, background worker desacoplado, MongoDB, testes automatizados (xUnit) e pipeline de CI.
-* **[EasyDelivery](https://github.com/jvitorsi-dev/EasyDelivery)** — Sistema de gestão de pedidos para restaurantes: Web API em camadas (ASP.NET Core), SQL Server via EF Core, autenticação JWT, integração de pagamentos com Mercado Pago e SPA em Angular.
-* **[BrasilDATAAPI](https://github.com/jvitorsi-dev/BrasilDATAAPI)** — API REST em .NET 8 que unifica consultas de dados públicos brasileiros (ViaCEP e BrasilAPI) com padronização de contratos e DTOs fortemente tipados.
-* **[leads](https://github.com/jvitorsi-dev/leads)** — Formulário e integração de captura para corretora de seguros (projeto da consultoria).
-
----
-
-### 📬 Contato
-
-✉️ [jvitorsi.dev@gmail.com](mailto:jvitorsi.dev@gmail.com) · [LinkedIn](https://www.linkedin.com/in/joao-vitor-silva-85a1a3390)
-
-_Disponível para oportunidades em desenvolvimento .NET / C# (CLT • Híbrido em São Paulo ou Remoto)._
+- Email: jvitorsi.dev@gmail.com
+- LinkedIn: [linkedin.com/in/joao-vitor-silva-85a1a3390](https://www.linkedin.com/in/joao-vitor-silva-85a1a3390)
