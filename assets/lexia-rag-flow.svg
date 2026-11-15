@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">LexIA — diagrama do pipeline RAG, não é captura de tela</title>
+  <desc id="desc">Pipeline conceitual de ingestão de PDF por PdfPig, divisão em artigos, embeddings e armazenamento JSON ou PostgreSQL com pgvector; consultas recuperam trechos relevantes e orientam resposta com referência legal.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#11121a"/><stop offset="1" stop-color="#1b1826"/></linearGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#d5c9ff" stroke-opacity=".045"/></pattern>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0v6l7-3z" fill="#b8a1ff"/></marker>
+    <marker id="arrowCyan" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0v6l7-3z" fill="#71dce5"/></marker>
+  </defs>
+  <rect width="960" height="560" rx="18" fill="url(#bg)"/><rect width="960" height="560" rx="18" fill="url(#grid)"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="36" y="48" fill="#c5b0ff" font-size="12" letter-spacing="2">03 / LEXIA</text>
+    <text x="36" y="76" fill="#eeeafa" font-size="21" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-weight="600">RAG para consulta de legislação</text>
+    <text x="922" y="48" fill="#9b91b4" font-size="10" text-anchor="end" letter-spacing="1">TECHNICAL DIAGRAM · NOT A SCREENSHOT</text>
+    <text x="38" y="116" fill="#b4a2e4" font-size="10" letter-spacing="1.4">01 / INGESTÃO</text>
+  </g>
+  <g fill="none" stroke="#b8a1ff" stroke-width="1.5" marker-end="url(#arrow)" opacity=".9"><path d="M184 167h24"/><path d="M366 167h24"/><path d="M548 167h24"/><path d="M730 167h24"/></g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <g><rect x="38" y="137" width="146" height="70" rx="9" fill="#201d2c" stroke="#7967aa"/><text x="111" y="167" text-anchor="middle" fill="#e0d6ff" font-size="12">PDF</text><text x="111" y="188" text-anchor="middle" fill="#a99dc2" font-size="10">documento legal</text></g>
+    <g><rect x="220" y="137" width="146" height="70" rx="9" fill="#201d2c" stroke="#7967aa"/><text x="293" y="167" text-anchor="middle" fill="#e0d6ff" font-size="12">PdfPig</text><text x="293" y="188" text-anchor="middle" fill="#a99dc2" font-size="10">extração de texto</text></g>
+    <g><rect x="402" y="137" width="146" height="70" rx="9" fill="#201d2c" stroke="#7967aa"/><text x="475" y="167" text-anchor="middle" fill="#e0d6ff" font-size="12">ARTIGOS</text><text x="475" y="188" text-anchor="middle" fill="#a99dc2" font-size="10">chunking estrutural</text></g>
+    <g><rect x="584" y="137" width="146" height="70" rx="9" fill="#201d2c" stroke="#7967aa"/><text x="657" y="167" text-anchor="middle" fill="#e0d6ff" font-size="12">EMBEDDINGS</text><text x="657" y="188" text-anchor="middle" fill="#a99dc2" font-size="10">lotes / vetores</text></g>
+    <g><rect x="766" y="137" width="156" height="70" rx="9" fill="#192127" stroke="#437e85"/><text x="844" y="167" text-anchor="middle" fill="#bceef0" font-size="12">STORAGE</text><text x="844" y="188" text-anchor="middle" fill="#91b2b6" font-size="10">JSON / pgvector</text></g>
+    <text x="38" y="271" fill="#91dce0" font-size="10" letter-spacing="1.4">02 / CONSULTA · API MINIMAL OU CLI</text>
+  </g>
+  <g fill="none" stroke="#71dce5" stroke-width="1.5" marker-end="url(#arrowCyan)" opacity=".9"><path d="M184 337h24"/><path d="M366 337h24"/><path d="M548 337h24"/><path d="M730 337h24"/></g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <g><rect x="38" y="302" width="146" height="70" rx="9" fill="#192127" stroke="#437e85"/><text x="111" y="332" text-anchor="middle" fill="#c3f0ef" font-size="11">PERGUNTA</text><text x="111" y="353" text-anchor="middle" fill="#91b2b6" font-size="10">ask / API</text></g>
+    <g><rect x="220" y="302" width="146" height="70" rx="9" fill="#192127" stroke="#437e85"/><text x="293" y="332" text-anchor="middle" fill="#c3f0ef" font-size="11">TOP 5</text><text x="293" y="353" text-anchor="middle" fill="#91b2b6" font-size="10">similaridade cosseno</text></g>
+    <g><rect x="402" y="302" width="146" height="70" rx="9" fill="#192127" stroke="#437e85"/><text x="475" y="332" text-anchor="middle" fill="#c3f0ef" font-size="11">LIMIAR</text><text x="475" y="353" text-anchor="middle" fill="#91b2b6" font-size="10">relevância suficiente?</text></g>
+    <g><rect x="584" y="302" width="146" height="70" rx="9" fill="#201d2c" stroke="#7967aa"/><text x="657" y="332" text-anchor="middle" fill="#e0d6ff" font-size="11">MODELO</text><text x="657" y="353" text-anchor="middle" fill="#a99dc2" font-size="10">Gemini / adaptador</text></g>
+    <g><rect x="766" y="302" width="156" height="70" rx="9" fill="#192127" stroke="#437e85"/><text x="844" y="332" text-anchor="middle" fill="#c3f0ef" font-size="11">RESPOSTA</text><text x="844" y="353" text-anchor="middle" fill="#91b2b6" font-size="10">[Lei, Art. X]</text></g>
+    <path d="M844 207v62H293v33" fill="none" stroke="#8271b2" stroke-width="1.2" stroke-dasharray="5 6" marker-end="url(#arrow)" opacity=".7"/>
+    <rect x="38" y="425" width="884" height="54" rx="8" fill="#151b23" stroke="#3a4660"/>
+    <text x="58" y="448" fill="#d6ccf6" font-size="11">Se a base não oferece suporte suficiente, o fluxo evita chamar o modelo.</text>
+    <text x="58" y="466" fill="#9c92b6" font-size="10">Armazenamento local JSON ou PostgreSQL / pgvector por configuração.</text>
+    <text x="38" y="537" fill="#817b94" font-size="9" letter-spacing="1">DIAGRAMA TÉCNICO CONCEITUAL · NÃO É CAPTURA DA INTERFACE</text>
+  </g>
+</svg>

@@ -1,9 +1,10 @@
 {
   "profile": {
     "name": "João Vitor",
-    "role": "Software Developer | .NET & Backend",
+    "role": "Software Developer · Backend .NET/C# & Full Stack",
     "focus": "Backend .NET/C# · Full Stack",
     "location": "Santo André, SP",
+    "education": "Análise e Desenvolvimento de Sistemas · FATEC",
     "tagline": "Gosto de tornar explícitos os fluxos, as regras e os dados que sustentam um sistema.",
     "summary": "Desenvolvedor com foco em backend .NET/C# e atuação Full Stack. Estudante de Análise e Desenvolvimento de Sistemas na FATEC."
   },
@@ -21,54 +22,70 @@
       "id": "taskflow",
       "file": "TaskFlow.json",
       "title": "TaskFlow",
-      "category": "Backend · arquitetura em camadas",
-      "status": "API + Worker · frontend Angular não localizado",
-      "description": "API REST de gerenciamento de projetos, tarefas e usuários, organizada em projetos Domain, Application, Infrastructure, API e Tests, com alvo .NET 10.",
+      "category": "Backend · eventos assíncronos",
+      "status": "API + Worker · sem UI pública no repositório",
+      "description": "API REST para projetos, tarefas e usuários em .NET 10, com camadas separadas e processamento de eventos por Worker.",
       "problem": "Representar projetos e tarefas com regras de domínio e estados explícitos, sem concentrar persistência e operações na API.",
-      "objectiveLabel": "Arquitetura e escopo",
-      "objective": "Separar o domínio, os casos de uso, a infraestrutura e a entrada HTTP; persistir em SQL Server e tratar eventos de conclusão em um Worker.",
+      "objectiveLabel": "Abordagem",
+      "objective": "Separar a entrada HTTP, os casos de uso, o domínio e a infraestrutura; persistir em SQL Server e processar a conclusão de tarefas em segundo plano.",
       "features": [
-        "Operações de criação, consulta, edição e exclusão de projetos, tarefas e usuários por serviços e casos de uso.",
-        "Regras de domínio para validação e transições de estado de projetos e tarefas.",
-        "Conclusão de tarefa publica um evento; o Outbox do MassTransit/EF Core o encaminha ao RabbitMQ para processamento pelo Worker e criação de notificação.",
-        "Testes xUnit para domínio, aplicação, API, infraestrutura e consumer; workflow de CI executa build e testes."
+        "Casos de uso para criar, consultar, editar e excluir projetos, tarefas e usuários.",
+        "Validações e transições de estado de projetos e tarefas concentradas no domínio.",
+        "A conclusão de tarefa publica um evento; o Outbox do MassTransit/EF Core o encaminha ao RabbitMQ para o Worker criar uma notificação.",
+        "Testes xUnit cobrem domínio, aplicação, API, infraestrutura e consumer; o CI executa build e testes."
       ],
-      "technologyNote": "Versões e dependências verificadas nos arquivos .csproj e no código da branch padrão master.",
+      "technologyGroups": [
+        { "label": "API / backend", "items": ["C#", ".NET 10", "ASP.NET Core"] },
+        { "label": "Persistência", "items": ["EF Core", "SQL Server"] },
+        { "label": "Mensageria", "items": ["MassTransit", "RabbitMQ"] },
+        { "label": "Qualidade", "items": ["xUnit", "NSubstitute"] }
+      ],
+      "highlightTech": ["ASP.NET Core", "EF Core", "MassTransit", "RabbitMQ"],
+      "technologyNote": "Versões e dependências conferidas nos arquivos .csproj e no código do branch público master.",
       "technologies": ["C#", ".NET 10", "ASP.NET Core", "Clean Architecture (inspirada)", "EF Core", "SQL Server", "MassTransit", "RabbitMQ", "xUnit", "NSubstitute"],
       "repoUrl": "https://github.com/jvitorsi-dev/TaskFlow",
-      "repoNote": "O repositório público contém API e Worker. Não encontrei código Angular nesse branch; por isso não apresento um frontend como implementação disponível.",
-      "projectNote": "O README descreve itens conhecidos e trabalho em evolução. A árvore pública analisada não contém frontend ou capturas de tela.",
-      "image": null,
-      "imageAlt": "",
-      "imageKind": "sem-captura",
-      "imageNote": "Nenhuma captura de tela ou asset de interface foi localizado no repositório público."
+      "repoNote": "O branch público master contém API e Worker; não localizei código Angular ou captura da interface.",
+      "projectNote": "O branch público master contém API e Worker; não localizei frontend Angular nem capturas da interface. O diagrama ilustra a estrutura e o fluxo de eventos descritos no repositório.",
+      "image": "./assets/taskflow-flow.svg",
+      "imageAlt": "Diagrama técnico conceitual do TaskFlow: camadas da API e fluxo de conclusão de tarefa pelo Outbox, RabbitMQ e Worker. Não é uma captura de tela.",
+      "imageKind": "diagram",
+      "imageNote": "Diagrama técnico conceitual do fluxo; não é captura da interface."
     },
     {
       "id": "easy-delivery",
       "file": "EasyDelivery.json",
       "title": "Easy Delivery",
       "category": "Full Stack · pedidos e entregas",
-      "status": "Angular + API · repositório público",
-      "description": "Sistema full-stack de pedidos para restaurantes, com experiências separadas para clientes, restaurantes e entregadores.",
-      "problem": "Conectar descoberta de restaurantes, montagem do pedido, pagamento e acompanhamento da entrega em um mesmo fluxo.",
-      "objectiveLabel": "Fluxo do produto",
-      "objective": "Implementar o percurso de um pedido entre catálogo, carrinho, pagamento, operação do restaurante e entrega.",
+      "status": "Angular + API · sem demo hospedada localizada",
+      "description": "Sistema full-stack de pedidos para restaurantes, com experiências para clientes, restaurantes e entregadores.",
+      "problem": "Conectar descoberta de restaurantes, montagem do pedido, pagamento e operação da entrega em um fluxo contínuo.",
+      "objectiveLabel": "Abordagem",
+      "objective": "Conduzir o pedido do catálogo e carrinho às etapas de pagamento, preparo no restaurante e conclusão da entrega.",
       "features": [
         "Frontend Angular com busca e filtro de restaurantes, navegação de cardápio e carrinho.",
         "Área do restaurante para consultar pedidos e avançar ou recusar estados do preparo.",
         "Área do entregador para consultar pedidos disponíveis, aceitá-los e registrar a conclusão da entrega.",
-        "API ASP.NET Core cria preferências Mercado Pago e processa notificações de pagamento por webhook.",
-        "Autenticação JWT, persistência SQL Server via EF Core e testes backend com xUnit/Moq."
+        "API ASP.NET Core cria preferências do Mercado Pago e processa notificações de pagamento por webhook.",
+        "Autenticação JWT, EF Core/SQL Server e testes backend com xUnit/Moq."
       ],
-      "technologyNote": "Stack confirmada nos manifests, controllers, services e código Angular. O workflow de CD atual simula a etapa de deploy; não encontrei uma demonstração hospedada.",
+      "technologyGroups": [
+        { "label": "Frontend", "items": ["Angular 21", "TypeScript"] },
+        { "label": "API / backend", "items": ["C#", ".NET 10", "ASP.NET Core"] },
+        { "label": "Dados / pagamento", "items": ["EF Core", "SQL Server", "Mercado Pago"] },
+        { "label": "Acesso / testes", "items": ["JWT", "xUnit", "Moq"] }
+      ],
+      "highlightTech": ["Angular 21", "ASP.NET Core", "SQL Server", "Mercado Pago"],
+      "technologyNote": "Stack confirmada nos manifests, controllers, services e código Angular. O workflow de CD simula a etapa de deploy; não encontrei uma demonstração hospedada.",
       "technologies": ["C#", ".NET 10", "ASP.NET Core", "Angular 21", "TypeScript", "EF Core", "SQL Server", "JWT", "Mercado Pago", "xUnit", "Moq"],
       "repoUrl": "https://github.com/jvitorsi-dev/EasyDelivery",
       "repoNote": "Repositório público com API, aplicação Angular, testes e workflows de CI/CD.",
-      "projectNote": "O único asset visual encontrado é a logomarca; o repositório não publica capturas da interface. O workflow de CD executa mensagens de simulação, não um deploy hospedado.",
-      "image": "assets/easydelivery-logo.png",
-      "imageAlt": "Logomarca do Easy Delivery, com o nome do projeto em letras coloridas.",
-      "imageKind": "logo",
-      "imageNote": "Logomarca publicada no repositório do projeto; não é uma captura de tela da aplicação."
+      "projectNote": "A imagem principal é um diagrama conceitual, não uma captura; o repositório publica a logomarca. O workflow de CD simula deploy e não localizei uma demo hospedada.",
+      "image": "./assets/easy-delivery-flow.svg",
+      "imageAlt": "Diagrama técnico conceitual do Easy Delivery: experiências de cliente, restaurante e entregador conectadas à API, Mercado Pago e persistência. Não é uma captura de tela.",
+      "imageKind": "diagram",
+      "imageNote": "Diagrama técnico conceitual do fluxo; não é captura da interface.",
+      "logo": "./assets/easydelivery-logo.png",
+      "logoAlt": "Logomarca publicada do projeto Easy Delivery; não é captura da aplicação."
     },
     {
       "id": "lexia",
@@ -76,26 +93,33 @@
       "title": "LexIA",
       "category": "IA aplicada · RAG de legislação",
       "status": "Protótipo backend · API + CLI",
-      "description": "Assistente experimental para perguntas sobre legislação municipal, com geração orientada por trechos recuperados e referências a lei e artigo.",
-      "problem": "Encontrar passagens relevantes em documentos legais e evitar responder quando a base indexada não fornece suporte suficiente.",
-      "objectiveLabel": "Pipeline RAG",
-      "objective": "Transformar PDFs em unidades consultáveis por artigo, recuperar trechos por similaridade e limitar a geração ao contexto recuperado.",
+      "description": "Assistente experimental para consultas sobre legislação, com respostas orientadas por trechos recuperados e referências à lei e ao artigo.",
+      "problem": "Encontrar passagens relevantes em documentos legais e evitar responder quando a base indexada não oferece suporte suficiente.",
+      "objectiveLabel": "Abordagem",
+      "objective": "Extrair PDFs por artigo, recuperar trechos por similaridade e restringir a geração ao contexto recuperado antes de montar uma resposta referenciada.",
       "features": [
-        "Extração de texto de PDF com PdfPig e chunking estrutural por artigo, com normalização de texto e rodapés.",
-        "Geração de embeddings em lote; recuperação dos cinco trechos mais similares por cosseno e limiar de relevância antes de chamar o modelo.",
-        "Prompt do assistente exige referências no formato [Lei, Art. X] e orienta a não completar lacunas com informação externa ao contexto.",
+        "Extração de texto de PDF com PdfPig e divisão estrutural por artigo, com normalização de texto e rodapés.",
+        "Geração de embeddings em lote; recuperação dos cinco trechos mais similares por cosseno e limiar de relevância antes da chamada ao modelo.",
+        "Prompt exige referências no formato [Lei, Art. X] e orienta a não completar lacunas com informação externa ao contexto recuperado.",
         "CLI com inspect, ingest, ask e stats; Minimal API com health, ask, ingestão de texto/PDF e estatísticas.",
         "Armazenamento local JSON com busca em memória por padrão ou PostgreSQL/pgvector por configuração."
       ],
+      "technologyGroups": [
+        { "label": "Aplicação", "items": ["C#", ".NET 8", "Microsoft.Extensions.AI"] },
+        { "label": "Ingestão / RAG", "items": ["PdfPig", "embeddings", "similaridade por cosseno"] },
+        { "label": "Armazenamento", "items": ["JSON local", "PostgreSQL", "pgvector"] },
+        { "label": "Modelo / testes", "items": ["Gemini via adaptador OpenAI-compatible", "xUnit"] }
+      ],
+      "highlightTech": [".NET 8", "PdfPig", "RAG", "pgvector"],
       "technologyNote": "O endpoint padrão usa Gemini por adaptador compatível com a API OpenAI; endpoint e modelos são configuráveis. A configuração não comprova validação de todos os provedores citados no README.",
       "technologies": ["C#", ".NET 8", "RAG", "Microsoft.Extensions.AI", "Gemini", "PdfPig", "PostgreSQL", "pgvector", "xUnit"],
       "repoUrl": "https://github.com/jvitorsi-dev/lexia",
-      "repoNote": "Repositório público com API, CLI, pipeline de ingestão e testes; não encontrei frontend ou capturas de tela.",
-      "projectNote": "O README lista interface Angular, streaming, busca híbrida, avaliações e deploy como próximos passos; não os apresento como funcionalidades concluídas.",
-      "image": null,
-      "imageAlt": "",
-      "imageKind": "sem-captura",
-      "imageNote": "Nenhuma captura de tela ou asset visual foi localizado no repositório público."
+      "repoNote": "Repositório público com API, CLI, pipeline de ingestão e testes; não localizei frontend ou capturas de tela.",
+      "projectNote": "Protótipo backend, sem frontend ou captura pública localizada. Interface Angular, streaming, busca híbrida, avaliações e deploy aparecem no README do projeto como próximos passos, não como funcionalidades concluídas.",
+      "image": "./assets/lexia-rag-flow.svg",
+      "imageAlt": "Diagrama técnico conceitual do pipeline RAG da LexIA, da extração de artigos e embeddings à recuperação e resposta referenciada. Não é uma captura de tela.",
+      "imageKind": "diagram",
+      "imageNote": "Diagrama técnico conceitual do pipeline; não é captura da interface."
     }
   ],
   "experience": {
@@ -120,7 +144,7 @@
       "items": ["Angular", "TypeScript", "JavaScript", "HTML", "CSS"]
     },
     {
-      "category": "Database",
+      "category": "Dados",
       "items": ["SQL Server", "Oracle", "PL/SQL", "PostgreSQL", "pgvector"]
     },
     {
@@ -128,7 +152,7 @@
       "items": ["OpenLayers", "GeoServer", "Cesium", "ECharts"]
     },
     {
-      "category": "Tools",
+      "category": "Ferramentas",
       "items": ["Git", "GitHub", "Swagger / OpenAPI", "xUnit", "Moq"]
     }
   ],

@@ -3,9 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#090d0f" />
-    <meta name="description" content="JV.DEV — portfólio interativo de João Vitor, desenvolvedor com foco em backend .NET/C#, Full Stack e sistemas geoespaciais." />
-    <title>JV.DEV — Interactive Engineering Portfolio</title>
+    <meta name="theme-color" content="#090e10" />
+    <meta name="description" content="Portfólio interativo de João Vitor: backend .NET/C#, projetos full-stack, WebGIS e engenharia de software." />
+    <meta property="og:title" content="JV.DEV — João Vitor | Software Developer" />
+    <meta property="og:description" content="Backend .NET/C# · Full Stack · FATEC · Santo André, SP" />
+    <meta property="og:type" content="website" />
+    <title>JV.DEV — João Vitor | Software Developer</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="preload" as="image" href="./assets/developer-lab-hero.jpg" fetchpriority="high" />
     <link rel="stylesheet" href="./styles.css" />
     <script type="module" src="./app.js"></script>
   </head>
@@ -17,65 +22,78 @@
         <span class="brand-mark" aria-hidden="true">JV</span>
         <span class="brand-name">JV<span>.DEV</span></span>
         <span class="brand-divider" aria-hidden="true"></span>
-        <span class="brand-caption">Interactive Engineering Portfolio</span>
+        <span class="brand-caption">Engineering workspace</span>
       </a>
 
       <nav class="primary-nav" id="primary-nav" aria-label="Navegação principal">
-        <button class="nav-link is-active" type="button" data-file="about" aria-current="page">Lab</button>
+        <button class="nav-link is-active" type="button" data-file="about" aria-current="page">Workspace</button>
         <button class="nav-link" type="button" data-file="projects">Projetos</button>
         <button class="nav-link" type="button" data-file="experience">Experiência</button>
-        <button class="nav-link" type="button" data-file="stack">Toolbox</button>
+        <button class="nav-link" type="button" data-file="stack">Stack</button>
       </nav>
 
       <div class="header-links">
-        <a href="https://github.com/jvitorsi-dev" target="_blank" rel="noreferrer" aria-label="Abrir perfil GitHub">GitHub <span aria-hidden="true">↗</span></a>
-        <a href="https://www.linkedin.com/in/joao-vitor-silva-85a1a3390" target="_blank" rel="noreferrer" aria-label="Abrir perfil LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/jvitorsi-dev" target="_blank" rel="noopener noreferrer" aria-label="Abrir perfil GitHub">GitHub <span aria-hidden="true">↗</span></a>
+        <a href="https://www.linkedin.com/in/joao-vitor-silva-85a1a3390" target="_blank" rel="noopener noreferrer" aria-label="Abrir perfil LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a>
+        <a href="mailto:jvitorsi.dev@gmail.com" aria-label="Enviar email">Email <span aria-hidden="true">↗</span></a>
       </div>
     </header>
 
     <main id="main-content">
       <section class="hero page-width" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> DEVELOPER LAB <span class="eyebrow-separator">/</span> SANTO ANDRÉ, BR</p>
-          <h1 id="hero-title">João Vitor<span class="title-period">.</span></h1>
-          <p class="hero-role">Software Developer <span>|</span> <strong>.NET &amp; Backend</strong></p>
-          <p class="hero-tagline">Antes de escolher a ferramenta, procuro entender o percurso do dado e as regras que o sistema precisa respeitar.</p>
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> JOÃO VITOR <span class="eyebrow-separator">/</span> SOFTWARE DEVELOPER</p>
+          <h1 id="hero-title">Sistemas claros.<br /><span class="hero-title-accent">Fluxos confiáveis.</span></h1>
+          <p class="hero-role"><strong>Backend .NET / C#</strong><span aria-hidden="true">·</span> Full Stack</p>
+          <p class="hero-tagline">Gosto de tornar explícitos os fluxos, as regras e os dados que sustentam um sistema.</p>
           <div class="hero-actions">
             <button class="button button-primary" type="button" data-file="projects">Explorar projetos <span aria-hidden="true">↓</span></button>
             <button class="button button-quiet" type="button" data-file="experience">Ver experiência <span aria-hidden="true">↗</span></button>
           </div>
-          <p class="hero-context"><span>Foco</span> Backend .NET/C# <span class="context-divider">·</span> Full Stack <span class="context-divider">·</span> WebGIS</p>
+          <div class="hero-credentials" aria-label="Formação e localização">
+            <span><small>FORMAÇÃO</small> Análise e Desenvolvimento de Sistemas · FATEC</span>
+            <span><small>LOCAL</small> Santo André, SP</span>
+          </div>
         </div>
 
-        <div class="hero-visual">
-          <div class="visual-frame-label"><span>PROFILE / JSON</span><span>READ ONLY</span></div>
-          <div class="hero-code-surface" role="img" aria-label="Painel estático de código com o foco profissional em backend .NET e C#, atuação Full Stack e contexto WebGIS.">
-            <div class="hero-code-toolbar" aria-hidden="true">
-              <span class="hero-code-lights"><i></i><i></i><i></i></span>
-              <span class="hero-code-file">profile.json</span>
-              <span class="hero-code-mode">STATIC / NO EXECUTION</span>
-            </div>
-            <pre class="hero-code-pre" aria-hidden="true"><code><span class="hero-code-line"><span class="hero-line-number">01</span> <span class="hero-token-punct">{</span></span><span class="hero-code-line"><span class="hero-line-number">02</span>   <span class="hero-token-key">"name"</span><span class="hero-token-punct">:</span> <span class="hero-token-string">"João Vitor"</span><span class="hero-token-punct">,</span></span><span class="hero-code-line"><span class="hero-line-number">03</span>   <span class="hero-token-key">"focus"</span><span class="hero-token-punct">:</span> <span class="hero-token-string">"Backend .NET / C#"</span><span class="hero-token-punct">,</span></span><span class="hero-code-line"><span class="hero-line-number">04</span>   <span class="hero-token-key">"scope"</span><span class="hero-token-punct">:</span> <span class="hero-token-array">[</span><span class="hero-token-string">"Full Stack"</span><span class="hero-token-punct">,</span> <span class="hero-token-string">"WebGIS"</span><span class="hero-token-array">]</span><span class="hero-token-punct">,</span></span><span class="hero-code-line"><span class="hero-line-number">05</span>   <span class="hero-token-key">"location"</span><span class="hero-token-punct">:</span> <span class="hero-token-string">"Santo André, SP"</span></span><span class="hero-code-line"><span class="hero-line-number">06</span> <span class="hero-token-punct">}</span></span></code></pre>
-            <div class="hero-code-footer" aria-hidden="true"><span>UTF-8</span><span>JV.DEV / PROFILE</span><span>JSON</span></div>
+        <figure class="hero-artwork">
+          <div class="hero-artwork-bar"><span><i class="window-light"></i> DEVELOPER LAB</span><span>EDITORIAL IMAGE</span></div>
+          <div class="hero-image-frame">
+            <img class="hero-image" src="./assets/developer-lab-hero.jpg" alt="Imagem editorial de um espaço de desenvolvimento com uma tela de diagrama e mapa urbano; não é captura de um dos projetos." fetchpriority="high" />
+            <span class="hero-image-stamp">SYSTEMS <b>×</b> DATA <b>×</b> PLACE</span>
           </div>
-          <div class="visual-frame-foot"><span>GRAPHITE / EMERALD / CYAN</span><span>PROFILE / CONFIG</span></div>
+          <figcaption><span>WORKSPACE / SANTO ANDRÉ</span><span>Imagem de atmosfera · não é captura de projeto</span></figcaption>
+        </figure>
+      </section>
+
+      <section class="featured-projects page-width" id="featured-projects" aria-labelledby="featured-projects-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">01 <span class="eyebrow-separator">/</span> PROJECTS</p>
+            <h2 id="featured-projects-title">Três recortes de engenharia.</h2>
+          </div>
+          <p class="section-note">TaskFlow, Easy Delivery e LexIA — escopo conferido nos repositórios públicos.</p>
         </div>
+        <div class="featured-project-grid" id="featured-project-grid" aria-live="polite">
+          <p class="loading-state">Carregando projetos…</p>
+        </div>
+        <p class="showcase-note"><span class="status-dot" aria-hidden="true"></span> Diagramas técnicos conceituais; não são capturas das interfaces.</p>
       </section>
 
       <section class="workspace-section page-width" id="lab" aria-labelledby="workspace-title">
         <div class="section-heading section-heading-compact">
           <div>
-            <p class="eyebrow">01 <span class="eyebrow-separator">/</span> WORKSPACE</p>
+            <p class="eyebrow">02 <span class="eyebrow-separator">/</span> WORKSPACE</p>
             <h2 id="workspace-title">Uma trajetória em arquivos.</h2>
           </div>
-          <p class="section-note">Explore pelo Explorer ou digite um comando no terminal.</p>
+          <p class="section-note">Explore pelo Explorer, navegue pelas abas ou use o terminal.</p>
         </div>
 
         <div class="workspace-shell">
           <div class="window-bar" aria-hidden="true">
             <div class="window-controls"><span></span><span></span><span></span></div>
             <div class="window-title">jv.dev — portfolio workspace</div>
-            <div class="window-state"><span class="status-dot"></span> LOCAL SESSION</div>
+            <div class="window-state"><span class="status-dot"></span> BROWSER SESSION</div>
           </div>
 
           <details class="mobile-explorer" id="mobile-explorer">
@@ -149,7 +167,7 @@
       <section class="engineering-section page-width" id="engineering" aria-labelledby="engineering-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">02 <span class="eyebrow-separator">/</span> ENGINEERING</p>
+            <p class="eyebrow">03 <span class="eyebrow-separator">/</span> ENGINEERING</p>
             <h2 id="engineering-title">Componentes, contratos, fluxo.</h2>
           </div>
           <p class="section-note">Diagrama conceitual. Não representa a arquitetura de um projeto específico.</p>
@@ -161,9 +179,7 @@
               <title id="architecture-svg-title">Arquitetura conceitual de uma aplicação</title>
               <desc id="architecture-svg-desc">Frontend envia requisições para uma API, que coordena regras de negócio, persistência e serviços geoespaciais. Selecione um componente para ler sua função.</desc>
               <defs>
-                <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-                  <path d="M0,0 L0,6 L7,3 z" fill="#49d7b0"></path>
-                </marker>
+                <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#49d7b0"></path></marker>
               </defs>
               <path class="architecture-link" d="M178 136 H272" marker-end="url(#arrowhead)"></path>
               <path class="architecture-link" d="M398 136 H492" marker-end="url(#arrowhead)"></path>
@@ -171,29 +187,19 @@
               <path class="architecture-link architecture-link-cyan" d="M620 150 C680 150 672 232 732 232" marker-end="url(#arrowhead)"></path>
 
               <g class="architecture-node is-selected" data-component="frontend" tabindex="0" role="button" aria-pressed="true" aria-label="Frontend: apresentar informação e captar interações">
-                <rect x="42" y="96" width="136" height="80" rx="10"></rect>
-                <text x="110" y="131" text-anchor="middle" class="node-title">Frontend</text>
-                <text x="110" y="153" text-anchor="middle" class="node-subtitle">web / mapa</text>
+                <rect x="42" y="96" width="136" height="80" rx="10"></rect><text x="110" y="131" text-anchor="middle" class="node-title">Frontend</text><text x="110" y="153" text-anchor="middle" class="node-subtitle">web / mapa</text>
               </g>
               <g class="architecture-node" data-component="api" tabindex="0" role="button" aria-pressed="false" aria-label="API REST: receber e encaminhar solicitações">
-                <rect x="272" y="96" width="126" height="80" rx="10"></rect>
-                <text x="335" y="131" text-anchor="middle" class="node-title">API REST</text>
-                <text x="335" y="153" text-anchor="middle" class="node-subtitle">contratos</text>
+                <rect x="272" y="96" width="126" height="80" rx="10"></rect><text x="335" y="131" text-anchor="middle" class="node-title">API REST</text><text x="335" y="153" text-anchor="middle" class="node-subtitle">contratos</text>
               </g>
               <g class="architecture-node" data-component="domain" tabindex="0" role="button" aria-pressed="false" aria-label="Regras de negócio: aplicar casos de uso e invariantes">
-                <rect x="492" y="96" width="128" height="80" rx="10"></rect>
-                <text x="556" y="131" text-anchor="middle" class="node-title">Domínio</text>
-                <text x="556" y="153" text-anchor="middle" class="node-subtitle">regras / casos</text>
+                <rect x="492" y="96" width="128" height="80" rx="10"></rect><text x="556" y="131" text-anchor="middle" class="node-title">Domínio</text><text x="556" y="153" text-anchor="middle" class="node-subtitle">regras / casos</text>
               </g>
               <g class="architecture-node" data-component="database" tabindex="0" role="button" aria-pressed="false" aria-label="Persistência: armazenar e consultar dados">
-                <rect x="732" y="28" width="164" height="76" rx="10"></rect>
-                <text x="814" y="61" text-anchor="middle" class="node-title">Persistência</text>
-                <text x="814" y="83" text-anchor="middle" class="node-subtitle">SQL / repositórios</text>
+                <rect x="732" y="28" width="164" height="76" rx="10"></rect><text x="814" y="61" text-anchor="middle" class="node-title">Persistência</text><text x="814" y="83" text-anchor="middle" class="node-subtitle">SQL / repositórios</text>
               </g>
               <g class="architecture-node" data-component="geospatial" tabindex="0" role="button" aria-pressed="false" aria-label="Serviços geoespaciais: fornecer operações e camadas espaciais">
-                <rect x="732" y="194" width="164" height="76" rx="10"></rect>
-                <text x="814" y="227" text-anchor="middle" class="node-title">Geoespacial</text>
-                <text x="814" y="249" text-anchor="middle" class="node-subtitle">serviços / camadas</text>
+                <rect x="732" y="194" width="164" height="76" rx="10"></rect><text x="814" y="227" text-anchor="middle" class="node-title">Geoespacial</text><text x="814" y="249" text-anchor="middle" class="node-subtitle">serviços / camadas</text>
               </g>
             </svg>
           </div>
@@ -224,8 +230,8 @@
         </div>
         <div class="closing-contact">
           <p class="eyebrow">CONNECT</p>
-          <a href="https://github.com/jvitorsi-dev" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-          <a href="https://www.linkedin.com/in/joao-vitor-silva-85a1a3390" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/jvitorsi-dev" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="https://www.linkedin.com/in/joao-vitor-silva-85a1a3390" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
           <a href="mailto:jvitorsi.dev@gmail.com">Email <span aria-hidden="true">↗</span></a>
         </div>
       </section>
