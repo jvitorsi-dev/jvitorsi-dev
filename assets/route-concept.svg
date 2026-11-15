@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="440" viewBox="0 0 960 440" role="img" aria-labelledby="title desc">
+  <title id="title">Ilustração conceitual de dados geoespaciais</title>
+  <desc id="desc">Malha urbana abstrata com um percurso em verde-esmeralda e pontos em ciano. Não representa uma captura de tela de um sistema.</desc>
+  <rect width="960" height="440" rx="20" fill="#0b1010"/>
+  <g stroke="#19302a" stroke-width="2" opacity="0.75">
+    <path d="M40 70 240 30 430 80 650 34 914 82" fill="none"/>
+    <path d="M24 154 208 122 388 174 610 128 936 172" fill="none"/>
+    <path d="M22 246 200 218 410 260 630 214 938 260" fill="none"/>
+    <path d="M38 340 230 302 434 350 664 306 920 352" fill="none"/>
+    <path d="M116 24 94 416M282 22 260 418M470 28 456 418M700 24 684 418M850 28 824 416" fill="none"/>
+    <path d="M44 28 218 416M388 24 540 416M626 26 804 414" fill="none"/>
+  </g>
+  <g fill="none" stroke="#245647" stroke-width="3" opacity="0.8">
+    <path d="M48 196 150 178 200 220 330 194 376 126 512 148 602 220 724 188 804 236 916 206"/>
+    <path d="M96 298 208 276 288 310 390 288 486 328 600 292 710 334 838 300"/>
+  </g>
+  <path d="M138 322 C190 294 218 292 258 250 S330 214 378 238 S464 286 512 246 S592 162 650 180 S724 226 782 164 S852 116 882 98" fill="none" stroke="#36d394" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#0b1010" stroke="#5ce4cb" stroke-width="6">
+    <circle cx="138" cy="322" r="13"/>
+    <circle cx="378" cy="238" r="13"/>
+    <circle cx="650" cy="180" r="13"/>
+    <circle cx="882" cy="98" r="13"/>
+  </g>
+  <g fill="#5ce4cb" opacity="0.9">
+    <circle cx="258" cy="250" r="4"/><circle cx="512" cy="246" r="4"/><circle cx="782" cy="164" r="4"/>
+  </g>
+</svg>
