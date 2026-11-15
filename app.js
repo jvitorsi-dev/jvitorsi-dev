@@ -164,6 +164,7 @@ function renderAbout(container) {
   aside.append(element("p", "aside-label", "SESSION / PROFILE"));
   aside.append(element("p", "", portfolio.profile.role));
   aside.append(element("p", "", portfolio.profile.focus));
+  if (portfolio.profile.education) aside.append(element("p", "", portfolio.profile.education));
   aside.append(element("p", "", portfolio.profile.location));
   const actions = element("div", "file-actions");
   const projectsButton = element("button", "inline-action", "Abrir projetos ↗");
@@ -180,101 +181,146 @@ function renderAbout(container) {
   container.append(grid);
 }
 
+function createProjectArtwork(project, variant = "detail") {
+  const figure = element("figure", `project-artwork project-artwork-${variant}`);
+  const surface = element("div", "project-artwork-surface");
+  const image = element("img", "project-artwork-image");
+  image.src = new URL(project.image, import.meta.url).href;
+  image.alt = project.imageAlt || `${project.title} — diagrama técnico conceitual, não é captura da interface.`;
+  image.loading = "lazy";
+  image.decoding = "async";
+  image.addEventListener("error", () => {
+    image.remove();
+    surface.append(element("div", "artwork-fallback", `${project.title} · diagrama indisponível`));
+  }, { once: true });
+  surface.append(image);
+
+  if (project.logo) {
+    const brand = element("span", "project-artwork-brand");
+    const logo = element("img", "project-brand-logo");
+    logo.src = new URL(project.logo, import.meta.url).href;
+    logo.alt = project.logoAlt || `Logomarca do projeto ${project.title}; não é captura da aplicação.`;
+    logo.loading = "lazy";
+    logo.decoding = "async";
+    logo.addEventListener("error", () => brand.remove(), { once: true });
+    brand.append(logo);
+    surface.append(brand);
+  }
+
+  const caption = element("figcaption", "project-artwork-caption");
+  caption.append(element("span", "artwork-kind", project.imageKind === "diagram" ? "DIAGRAMA TÉCNICO" : "ASSET VISUAL"));
+  caption.append(element("span", "", project.imageNote || "Visual conceitual; não é captura da interface."));
+  figure.append(surface, caption);
+  return figure;
+}
+
+function createProjectCard(project, variant = "featured") {
+  const card = element("article", `project-card project-card-${variant} project-${project.id}`);
+  card.append(createProjectArtwork(project, variant));
+
+  const copy = element("div", "project-card-copy");
+  const number = String(portfolio.projects.indexOf(project) + 1).padStart(2, "0");
+  copy.append(element("p", "project-card-kicker", `${number} / ${project.status}`));
+  copy.append(element("h3", "", project.title));
+  copy.append(element("p", "project-card-category", project.category));
+  copy.append(element("p", "project-card-description", project.description));
+
+  if (Array.isArray(project.highlightTech) && project.highlightTech.length) {
+    const stack = element("p", "project-card-stack");
+    stack.append(element("span", "project-card-stack-label", "CORE"), document.createTextNode(` ${project.highlightTech.join(" · ")}`));
+    copy.append(stack);
+  }
+
+  const actions = element("div", "project-card-actions");
+  const open = element("button", "project-card-open", "Inspecionar projeto ↗");
+  open.type = "button";
+  open.dataset.file = projectFileId(project);
+  actions.append(open);
+  const repo = createExternalLink(project.repoUrl, "GitHub", "project-card-repo");
+  if (repo) actions.append(repo);
+  copy.append(actions);
+  card.append(copy);
+  return card;
+}
+
+function renderFeaturedProjects() {
+  const grid = $("#featured-project-grid");
+  if (!grid) return;
+  grid.replaceChildren();
+  portfolio.projects.forEach((project) => grid.append(createProjectCard(project, "featured")));
+}
+
 function renderProjectIndex(container) {
-  appendFileKicker(container, "projects/", "select a project to inspect");
-  container.append(element("h2", "", "Projetos em contexto."));
-  container.append(element("p", "", "Três recortes distintos: arquitetura backend, produto full-stack e experimentação com RAG — descritos conforme o estado público de cada repositório."));
-  const list = element("div", "project-list");
-
-  portfolio.projects.forEach((project) => {
-    const button = element("button", "project-list-item");
-    button.type = "button";
-    button.dataset.file = projectFileId(project);
-    const copy = element("span", "project-list-copy");
-    copy.append(element("strong", "", project.title));
-    copy.append(element("small", "", `${project.category} · ${project.description}`));
-    button.append(copy, element("span", "project-list-arrow", "↗"));
-    list.append(button);
-  });
-
+  appendFileKicker(container, "projects/", "verified scope / select a project");
+  container.append(element("h2", "", "Três projetos, três problemas."));
+  container.append(element("p", "project-index-intro", "Cada ficha separa o problema, a abordagem e as funcionalidades encontradas no repositório público."));
+  const list = element("div", "project-index-grid");
+  portfolio.projects.forEach((project) => list.append(createProjectCard(project, "index")));
   container.append(list);
 }
 
 function renderProject(project, container) {
-  const assetLabel = project.imageKind === "logo"
-    ? "brand asset / not a screenshot"
-    : project.image
-      ? project.imageKind
-      : "no public screenshot";
-  appendFileKicker(container, `projects/${project.file}`, assetLabel);
-
-  const view = element("article", `project-view${project.image ? "" : " project-view-no-image"}`);
-  if (project.image) {
-    const visual = element("div", "project-visual-column");
-    const imageWrap = element("div", "project-image-wrap");
-    const imageClasses = ["project-image"];
-    if (project.imageKind === "conceitual") imageClasses.push("project-image-concept");
-    if (project.imageKind === "logo") imageClasses.push("project-image-logo");
-    const image = element("img", imageClasses.join(" "));
-    image.src = project.image;
-    image.alt = project.imageAlt || project.title;
-    image.loading = "lazy";
-    image.decoding = "async";
-    image.addEventListener("error", () => {
-      image.remove();
-      imageWrap.append(element("p", "image-fallback", "Imagem indisponível; os detalhes do projeto permanecem acessíveis no texto."));
-    }, { once: true });
-    imageWrap.append(image);
-
-    const caption = project.imageKind === "logo"
-      ? project.imageNote || "Logomarca do projeto · não é captura da aplicação"
-      : project.imageKind === "conceitual"
-        ? "Ilustração conceitual · não é captura do sistema"
-        : "Captura publicada no repositório do projeto";
-    imageWrap.append(element("p", "project-image-caption", caption));
-    visual.append(imageWrap);
-    view.append(visual);
-  }
-
-  const details = element("div", "project-details");
+  const view = element("article", `project-view project-${project.id}`);
+  const intro = element("div", "project-detail-intro");
+  const heading = element("div", "project-detail-heading");
   const meta = element("div", "file-meta");
-  meta.append(element("span", "pill", project.category));
+  meta.append(element("span", "pill project-category", project.category));
   meta.append(element("span", "pill pill-cyan", project.status));
-  details.append(meta, element("h2", "", project.title), element("p", "project-description", project.description));
+  heading.append(meta, element("h2", "", project.title), element("p", "project-description", project.description));
 
-  if (project.projectNote) details.append(element("p", "project-note", project.projectNote));
-  if (!project.image && project.imageNote) details.append(element("p", "asset-note", project.imageNote));
+  const actions = element("div", "project-detail-actions");
+  const repo = createExternalLink(project.repoUrl, "Abrir repositório ↗", "project-repo");
+  if (repo) actions.append(repo);
+  heading.append(actions);
+  if (project.projectNote) heading.append(element("p", "project-note", project.projectNote));
 
-  details.append(element("p", "project-section-label", "Problema observado"));
-  details.append(element("p", "", project.problem));
-  details.append(element("p", "project-section-label", project.objectiveLabel || "Objetivo"));
-  details.append(element("p", "", project.objective));
+  intro.append(heading, createProjectArtwork(project, "detail"));
+  view.append(intro);
+
+  const outcomes = element("div", "project-outcomes");
+  const problem = element("section", "project-outcome project-outcome-problem");
+  problem.append(element("p", "project-section-label", "Problema"), element("p", "", project.problem));
+  const approach = element("section", "project-outcome project-outcome-approach");
+  approach.append(element("p", "project-section-label", project.objectiveLabel || "Abordagem"), element("p", "", project.objective));
+  outcomes.append(problem, approach);
+  view.append(outcomes);
 
   if (Array.isArray(project.features) && project.features.length) {
-    details.append(element("p", "project-section-label", "Implementação observável"));
-    const features = element("ul", "feature-list");
+    const featureSection = element("section", "project-feature-section");
+    const featureHeading = element("div", "project-subheading");
+    featureHeading.append(element("p", "project-section-label", "Implementação observada"));
+    featureHeading.append(element("span", "project-evidence", "VERIFICADO NO REPOSITÓRIO"));
+    featureSection.append(featureHeading);
+    const features = element("ul", "feature-list project-feature-list");
     project.features.forEach((feature) => features.append(element("li", "", feature)));
-    details.append(features);
+    featureSection.append(features);
+    view.append(featureSection);
   }
 
-  details.append(element("p", "project-section-label", "Tecnologias"));
-  if (project.technologies.length) {
-    const chips = element("div", "tech-list");
-    project.technologies.forEach((technology) => chips.append(element("span", "tech-chip", technology)));
-    details.append(chips);
-    details.append(element("p", "project-tech-note", project.technologyNote));
-  } else {
-    details.append(element("p", "", project.technologyNote));
-  }
+  const stackSection = element("section", "project-stack-section");
+  const stackHeading = element("div", "project-subheading");
+  stackHeading.append(element("p", "project-section-label", "Tecnologias por contexto"));
+  stackHeading.append(element("span", "project-evidence", "AGRUPADO POR CONTEXTO"));
+  stackSection.append(stackHeading);
 
-  if (project.repoUrl) {
-    const link = createExternalLink(project.repoUrl, "Abrir repositório no GitHub ↗", "project-repo");
-    if (link) details.append(link);
-  } else {
-    details.append(element("span", "repo-unavailable", project.repoNote));
+  const groups = element("div", "project-stack-groups");
+  if (Array.isArray(project.technologyGroups) && project.technologyGroups.length) {
+    project.technologyGroups.forEach((group) => {
+      const row = element("div", "project-stack-group");
+      row.append(element("span", "project-stack-label", group.label));
+      const items = element("div", "project-stack-items");
+      group.items.forEach((item) => items.append(element("span", "tech-chip", item)));
+      row.append(items);
+      groups.append(row);
+    });
+  } else if (Array.isArray(project.technologies)) {
+    const items = element("div", "project-stack-items");
+    project.technologies.forEach((item) => items.append(element("span", "tech-chip", item)));
+    groups.append(items);
   }
-
-  view.append(details);
+  stackSection.append(groups);
+  if (project.technologyNote) stackSection.append(element("p", "project-tech-note", project.technologyNote));
+  view.append(stackSection);
   container.append(view);
 }
 
@@ -298,8 +344,8 @@ function renderExperience(container) {
 }
 
 function renderStack(container) {
-  appendFileKicker(container, "stack.json", "grouped by context, not proficiency score");
-  container.append(element("h2", "", "Toolbox por contexto."));
+  appendFileKicker(container, "stack.json", "agrupado por contexto de uso");
+  container.append(element("h2", "", "Stack por contexto."));
   container.append(element("p", "", "O foco principal é backend .NET/C#. As demais tecnologias aparecem conforme a necessidade do sistema ou do projeto."));
 
   const groups = element("div", "stack-sections");
@@ -524,7 +570,7 @@ function bindInterface() {
     const fileTrigger = event.target.closest("[data-file]");
     if (fileTrigger) {
       event.preventDefault();
-      const shouldScroll = Boolean(fileTrigger.closest(".primary-nav, .hero-actions"));
+      const shouldScroll = Boolean(fileTrigger.closest(".primary-nav, .hero-actions, .featured-project-grid"));
       openFile(fileTrigger.dataset.file, { scroll: shouldScroll });
       return;
     }
@@ -582,6 +628,7 @@ async function bootstrap() {
     if (!response.ok) throw new Error(`Portfolio data returned ${response.status}`);
     portfolio = await response.json();
     projectById = new Map(portfolio.projects.map((project) => [project.id, project]));
+    renderFeaturedProjects();
     bindInterface();
     bindTerminal();
     initActiveFile();
