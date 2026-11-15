@@ -4,81 +4,98 @@
     "role": "Software Developer | .NET & Backend",
     "focus": "Backend .NET/C# · Full Stack",
     "location": "Santo André, SP",
-    "tagline": "Antes de escolher a ferramenta, procuro entender o percurso do dado e as regras que o sistema precisa respeitar.",
+    "tagline": "Gosto de tornar explícitos os fluxos, as regras e os dados que sustentam um sistema.",
     "summary": "Desenvolvedor com foco em backend .NET/C# e atuação Full Stack. Estudante de Análise e Desenvolvimento de Sistemas na FATEC."
   },
   "about": {
-    "title": "Um laboratório para engenharia aplicada",
+    "title": "Engenharia em três contextos.",
     "paragraphs": [
-      "Trabalho com sistemas que precisam continuar compreensíveis enquanto evoluem: APIs, regras de negócio, dados e interfaces fazem parte do mesmo fluxo.",
-      "Minha experiência profissional inclui desenvolvimento e manutenção de sistemas municipais, geoprocessamento, WebGIS, dashboards geográficos, integrações, bancos relacionais e sistemas legados.",
-      "Fora desse contexto, uso projetos acadêmicos e autorais para estudar arquitetura, integração e construção de software de ponta a ponta."
+      "Trabalho com sistemas em que regras, dados e integrações precisam continuar compreensíveis enquanto evoluem.",
+      "Minha experiência profissional inclui desenvolvimento e manutenção de sistemas municipais, geoprocessamento, WebGIS, dashboards geográficos e bancos de dados.",
+      "Nos projetos públicos, exploro competências diferentes: arquitetura backend, fluxos full-stack de pedidos e RAG aplicado à legislação."
     ],
-    "principle": "Entender o fluxo primeiro. Escolher a abstração depois."
+    "principle": "Entender o fluxo e as invariantes antes de escolher a abstração."
   },
   "projects": [
     {
-      "id": "siga-rotas",
-      "file": "SIGA-Rotas.json",
-      "title": "SIGA-Rotas",
-      "category": "Experiência profissional · Prefeitura de Santo André",
-      "status": "Resumo de alto nível",
-      "description": "Aplicação municipal para planejamento e acompanhamento de rotas, com geolocalização e otimização, conforme a descrição fornecida pelo autor.",
-      "problem": "Apoiar o planejamento e o acompanhamento de rotas com informação geográfica.",
-      "objective": "Relacionar rotas, localização e acompanhamento em um contexto municipal.",
-      "technologyNote": "A stack específica não é atribuída: não há código ou repositório público acessível para verificá-la.",
-      "technologies": [],
-      "repoUrl": null,
-      "repoNote": "O repositório indicado não está acessível publicamente no momento da análise.",
-      "image": "assets/route-concept.svg",
-      "imageAlt": "Ilustração abstrata de uma rota sobre uma malha geográfica; não representa uma tela do SIGA-Rotas.",
-      "imageKind": "conceitual"
+      "id": "taskflow",
+      "file": "TaskFlow.json",
+      "title": "TaskFlow",
+      "category": "Backend · arquitetura em camadas",
+      "status": "API + Worker · frontend Angular não localizado",
+      "description": "API REST de gerenciamento de projetos, tarefas e usuários, organizada em projetos Domain, Application, Infrastructure, API e Tests, com alvo .NET 10.",
+      "problem": "Representar projetos e tarefas com regras de domínio e estados explícitos, sem concentrar persistência e operações na API.",
+      "objectiveLabel": "Arquitetura e escopo",
+      "objective": "Separar o domínio, os casos de uso, a infraestrutura e a entrada HTTP; persistir em SQL Server e tratar eventos de conclusão em um Worker.",
+      "features": [
+        "Operações de criação, consulta, edição e exclusão de projetos, tarefas e usuários por serviços e casos de uso.",
+        "Regras de domínio para validação e transições de estado de projetos e tarefas.",
+        "Conclusão de tarefa publica um evento; o Outbox do MassTransit/EF Core o encaminha ao RabbitMQ para processamento pelo Worker e criação de notificação.",
+        "Testes xUnit para domínio, aplicação, API, infraestrutura e consumer; workflow de CI executa build e testes."
+      ],
+      "technologyNote": "Versões e dependências verificadas nos arquivos .csproj e no código da branch padrão master.",
+      "technologies": ["C#", ".NET 10", "ASP.NET Core", "Clean Architecture (inspirada)", "EF Core", "SQL Server", "MassTransit", "RabbitMQ", "xUnit", "NSubstitute"],
+      "repoUrl": "https://github.com/jvitorsi-dev/TaskFlow",
+      "repoNote": "O repositório público contém API e Worker. Não encontrei código Angular nesse branch; por isso não apresento um frontend como implementação disponível.",
+      "projectNote": "O README descreve itens conhecidos e trabalho em evolução. A árvore pública analisada não contém frontend ou capturas de tela.",
+      "image": null,
+      "imageAlt": "",
+      "imageKind": "sem-captura",
+      "imageNote": "Nenhuma captura de tela ou asset de interface foi localizado no repositório público."
     },
     {
-      "id": "petclean",
-      "file": "PetClean.json",
-      "title": "PetClean",
-      "category": "Projeto acadêmico",
-      "status": "Repositório público",
-      "description": "Sistema de gestão para pet shop desenvolvido como projeto acadêmico, com API REST e painel web.",
-      "problem": "Reunir rotinas de clientes, pets, agendamentos, estoque e acompanhamento em dashboards.",
-      "objective": "Implementar histórias de usuário de gestão de pet shop em uma aplicação com API e interface web.",
+      "id": "easy-delivery",
+      "file": "EasyDelivery.json",
+      "title": "Easy Delivery",
+      "category": "Full Stack · pedidos e entregas",
+      "status": "Angular + API · repositório público",
+      "description": "Sistema full-stack de pedidos para restaurantes, com experiências separadas para clientes, restaurantes e entregadores.",
+      "problem": "Conectar descoberta de restaurantes, montagem do pedido, pagamento e acompanhamento da entrega em um mesmo fluxo.",
+      "objectiveLabel": "Fluxo do produto",
+      "objective": "Implementar o percurso de um pedido entre catálogo, carrinho, pagamento, operação do restaurante e entrega.",
       "features": [
-        "Cadastro e consulta de clientes e pets",
-        "Agendamentos com validações e conflito de horários",
-        "Controle e movimentação de estoque",
-        "Dashboards com indicadores e períodos",
-        "Autenticação por sessão e proteção de rotas"
+        "Frontend Angular com busca e filtro de restaurantes, navegação de cardápio e carrinho.",
+        "Área do restaurante para consultar pedidos e avançar ou recusar estados do preparo.",
+        "Área do entregador para consultar pedidos disponíveis, aceitá-los e registrar a conclusão da entrega.",
+        "API ASP.NET Core cria preferências Mercado Pago e processa notificações de pagamento por webhook.",
+        "Autenticação JWT, persistência SQL Server via EF Core e testes backend com xUnit/Moq."
       ],
-      "technologyNote": "Tecnologias descritas no README e presentes no repositório.",
-      "technologies": ["Java", "Spring Boot", "Spring Data JPA", "H2", "Thymeleaf", "JUnit"],
-      "repoUrl": "https://github.com/jvitorsi-dev/PetClean",
-      "repoNote": "Código, documentação e testes no repositório.",
-      "image": "https://raw.githubusercontent.com/jvitorsi-dev/PetClean/88dc1437edaf0794e9863b56764a1ce430bb12d1/docs/apresentacao/assets/dash-popy.png",
-      "imageAlt": "Captura do dashboard do PetClean publicada no repositório do projeto.",
-      "imageKind": "captura real"
+      "technologyNote": "Stack confirmada nos manifests, controllers, services e código Angular. O workflow de CD atual simula a etapa de deploy; não encontrei uma demonstração hospedada.",
+      "technologies": ["C#", ".NET 10", "ASP.NET Core", "Angular 21", "TypeScript", "EF Core", "SQL Server", "JWT", "Mercado Pago", "xUnit", "Moq"],
+      "repoUrl": "https://github.com/jvitorsi-dev/EasyDelivery",
+      "repoNote": "Repositório público com API, aplicação Angular, testes e workflows de CI/CD.",
+      "projectNote": "O único asset visual encontrado é a logomarca; o repositório não publica capturas da interface. O workflow de CD executa mensagens de simulação, não um deploy hospedado.",
+      "image": "assets/easydelivery-logo.png",
+      "imageAlt": "Logomarca do Easy Delivery, com o nome do projeto em letras coloridas.",
+      "imageKind": "logo",
+      "imageNote": "Logomarca publicada no repositório do projeto; não é uma captura de tela da aplicação."
     },
     {
-      "id": "vozes-do-oceano",
-      "file": "Vozes-do-Oceano.json",
-      "title": "Vozes do Oceano",
-      "category": "Projeto autoral experimental",
-      "status": "Em desenvolvimento · informado pelo autor",
-      "description": "Jogo em primeira pessoa de exploração e investigação narrativa em português, ambientado em uma estação orbital diante de um planeta-oceano.",
-      "problem": "Criar uma experiência interativa em que descobertas, decisões e atmosfera conduzem a exploração.",
-      "objective": "Construir uma narrativa sistêmica com estados persistentes e manifestações que respondem ao contexto da partida.",
+      "id": "lexia",
+      "file": "LexIA.json",
+      "title": "LexIA",
+      "category": "IA aplicada · RAG de legislação",
+      "status": "Protótipo backend · API + CLI",
+      "description": "Assistente experimental para perguntas sobre legislação municipal, com geração orientada por trechos recuperados e referências a lei e artigo.",
+      "problem": "Encontrar passagens relevantes em documentos legais e evitar responder quando a base indexada não fornece suporte suficiente.",
+      "objectiveLabel": "Pipeline RAG",
+      "objective": "Transformar PDFs em unidades consultáveis por artigo, recuperar trechos por similaridade e limitar a geração ao contexto recuperado.",
       "features": [
-        "Estado de jogo com decisões, descobertas e progressão narrativa",
-        "Anomalias contextuais ligadas ao local e ao que o jogador já viu",
-        "Cenários e efeitos visuais procedurais"
+        "Extração de texto de PDF com PdfPig e chunking estrutural por artigo, com normalização de texto e rodapés.",
+        "Geração de embeddings em lote; recuperação dos cinco trechos mais similares por cosseno e limiar de relevância antes de chamar o modelo.",
+        "Prompt do assistente exige referências no formato [Lei, Art. X] e orienta a não completar lacunas com informação externa ao contexto.",
+        "CLI com inspect, ingest, ask e stats; Minimal API com health, ask, ingestão de texto/PDF e estatísticas.",
+        "Armazenamento local JSON com busca em memória por padrão ou PostgreSQL/pgvector por configuração."
       ],
-      "technologyNote": "Tecnologias identificadas no README e na estrutura de código do repositório.",
-      "technologies": ["Godot 4.4", "GDScript", "Shaders"],
-      "repoUrl": "https://github.com/jvitorsi-dev/vozes-do-oceano",
-      "repoNote": "Repositório público com código, documentação e capturas do jogo.",
-      "image": "https://raw.githubusercontent.com/jvitorsi-dev/vozes-do-oceano/09616dc4f7f18e2cf55e228caf615b75dadbc1c9/docs/capturas/06-oceano-de-irio.png",
-      "imageAlt": "Captura real do oceano de Írio dentro do jogo Vozes do Oceano.",
-      "imageKind": "captura real"
+      "technologyNote": "O endpoint padrão usa Gemini por adaptador compatível com a API OpenAI; endpoint e modelos são configuráveis. A configuração não comprova validação de todos os provedores citados no README.",
+      "technologies": ["C#", ".NET 8", "RAG", "Microsoft.Extensions.AI", "Gemini", "PdfPig", "PostgreSQL", "pgvector", "xUnit"],
+      "repoUrl": "https://github.com/jvitorsi-dev/lexia",
+      "repoNote": "Repositório público com API, CLI, pipeline de ingestão e testes; não encontrei frontend ou capturas de tela.",
+      "projectNote": "O README lista interface Angular, streaming, busca híbrida, avaliações e deploy como próximos passos; não os apresento como funcionalidades concluídas.",
+      "image": null,
+      "imageAlt": "",
+      "imageKind": "sem-captura",
+      "imageNote": "Nenhuma captura de tela ou asset visual foi localizado no repositório público."
     }
   ],
   "experience": {
@@ -96,15 +113,15 @@
   "stack": [
     {
       "category": "Backend",
-      "items": ["C#", ".NET", ".NET Framework", "APIs REST"]
+      "items": ["C#", ".NET", "ASP.NET Core", ".NET Framework", "APIs REST"]
     },
     {
       "category": "Frontend",
-      "items": ["JavaScript", "HTML", "CSS"]
+      "items": ["Angular", "TypeScript", "JavaScript", "HTML", "CSS"]
     },
     {
       "category": "Database",
-      "items": ["SQL Server", "Oracle", "PL/SQL"]
+      "items": ["SQL Server", "Oracle", "PL/SQL", "PostgreSQL", "pgvector"]
     },
     {
       "category": "Geospatial",
@@ -112,7 +129,7 @@
     },
     {
       "category": "Tools",
-      "items": ["Git", "GitHub"]
+      "items": ["Git", "GitHub", "Swagger / OpenAPI", "xUnit", "Moq"]
     }
   ],
   "architecture": {

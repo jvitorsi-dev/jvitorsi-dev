@@ -8,11 +8,11 @@ const FILES = {
 
 const PROJECT_FILE_PREFIX = "project-";
 const PROJECT_ALIASES = {
-  siga: "siga-rotas",
-  "siga-rotas": "siga-rotas",
-  petclean: "petclean",
-  vozes: "vozes-do-oceano",
-  "vozes-do-oceano": "vozes-do-oceano"
+  taskflow: "taskflow",
+  "easy delivery": "easy-delivery",
+  "easy-delivery": "easy-delivery",
+  easydelivery: "easy-delivery",
+  lexia: "lexia"
 };
 
 let portfolio = null;
@@ -33,16 +33,12 @@ function element(tagName, className = "", text = "") {
 }
 
 function projectFileId(project) {
-  return `${PROJECT_FILE_PREFIX}${project.id === "siga-rotas" ? "siga" : project.id === "petclean" ? "petclean" : "vozes"}`;
+  return `${PROJECT_FILE_PREFIX}${project.id}`;
 }
 
 function getFileDescriptor(fileId) {
   if (fileId.startsWith(PROJECT_FILE_PREFIX)) {
-    const shortId = fileId.slice(PROJECT_FILE_PREFIX.length);
-    const projectId = Object.entries(PROJECT_ALIASES).find(([, value]) => {
-      const mapped = value === "siga-rotas" ? "siga" : value === "vozes-do-oceano" ? "vozes" : value;
-      return mapped === shortId;
-    })?.[1];
+    const projectId = fileId.slice(PROJECT_FILE_PREFIX.length);
     const project = projectById.get(projectId);
     if (!project) return null;
     return {
@@ -187,7 +183,7 @@ function renderAbout(container) {
 function renderProjectIndex(container) {
   appendFileKicker(container, "projects/", "select a project to inspect");
   container.append(element("h2", "", "Projetos em contexto."));
-  container.append(element("p", "", "Experiência profissional, projeto acadêmico e projeto autoral — cada um apresentado de acordo com o que está acessível e documentado."));
+  container.append(element("p", "", "Três recortes distintos: arquitetura backend, produto full-stack e experimentação com RAG — descritos conforme o estado público de cada repositório."));
   const list = element("div", "project-list");
 
   portfolio.projects.forEach((project) => {
@@ -205,38 +201,57 @@ function renderProjectIndex(container) {
 }
 
 function renderProject(project, container) {
-  appendFileKicker(container, `projects/${project.file}`, project.imageKind === "conceitual" ? "illustration only" : project.imageKind);
+  const assetLabel = project.imageKind === "logo"
+    ? "brand asset / not a screenshot"
+    : project.image
+      ? project.imageKind
+      : "no public screenshot";
+  appendFileKicker(container, `projects/${project.file}`, assetLabel);
 
-  const view = element("article", "project-view");
-  const visual = element("div", "project-visual-column");
-  const imageWrap = element("div", "project-image-wrap");
-  const image = element("img", `project-image${project.imageKind === "conceitual" ? " project-image-concept" : ""}`);
-  image.src = project.image;
-  image.alt = project.imageAlt;
-  image.loading = "lazy";
-  image.decoding = "async";
-  image.addEventListener("error", () => {
-    image.remove();
-    imageWrap.append(element("p", "image-fallback", "Imagem indisponível; os detalhes do projeto permanecem acessíveis no texto."));
-  }, { once: true });
-  imageWrap.append(image);
-  const caption = project.imageKind === "conceitual" ? "Ilustração conceitual · não é captura do sistema" : "Captura publicada no repositório do projeto";
-  imageWrap.append(element("p", "project-image-caption", caption));
-  visual.append(imageWrap);
+  const view = element("article", `project-view${project.image ? "" : " project-view-no-image"}`);
+  if (project.image) {
+    const visual = element("div", "project-visual-column");
+    const imageWrap = element("div", "project-image-wrap");
+    const imageClasses = ["project-image"];
+    if (project.imageKind === "conceitual") imageClasses.push("project-image-concept");
+    if (project.imageKind === "logo") imageClasses.push("project-image-logo");
+    const image = element("img", imageClasses.join(" "));
+    image.src = project.image;
+    image.alt = project.imageAlt || project.title;
+    image.loading = "lazy";
+    image.decoding = "async";
+    image.addEventListener("error", () => {
+      image.remove();
+      imageWrap.append(element("p", "image-fallback", "Imagem indisponível; os detalhes do projeto permanecem acessíveis no texto."));
+    }, { once: true });
+    imageWrap.append(image);
+
+    const caption = project.imageKind === "logo"
+      ? project.imageNote || "Logomarca do projeto · não é captura da aplicação"
+      : project.imageKind === "conceitual"
+        ? "Ilustração conceitual · não é captura do sistema"
+        : "Captura publicada no repositório do projeto";
+    imageWrap.append(element("p", "project-image-caption", caption));
+    visual.append(imageWrap);
+    view.append(visual);
+  }
 
   const details = element("div", "project-details");
   const meta = element("div", "file-meta");
   meta.append(element("span", "pill", project.category));
-  meta.append(element("span", project.imageKind === "conceitual" ? "pill pill-warning" : "pill pill-cyan", project.status));
+  meta.append(element("span", "pill pill-cyan", project.status));
   details.append(meta, element("h2", "", project.title), element("p", "project-description", project.description));
+
+  if (project.projectNote) details.append(element("p", "project-note", project.projectNote));
+  if (!project.image && project.imageNote) details.append(element("p", "asset-note", project.imageNote));
 
   details.append(element("p", "project-section-label", "Problema observado"));
   details.append(element("p", "", project.problem));
-  details.append(element("p", "project-section-label", project.objective.startsWith("Relacionar") ? "Escopo resumido" : "Objetivo"));
+  details.append(element("p", "project-section-label", project.objectiveLabel || "Objetivo"));
   details.append(element("p", "", project.objective));
 
   if (Array.isArray(project.features) && project.features.length) {
-    details.append(element("p", "project-section-label", "Implementação documentada"));
+    details.append(element("p", "project-section-label", "Implementação observável"));
     const features = element("ul", "feature-list");
     project.features.forEach((feature) => features.append(element("li", "", feature)));
     details.append(features);
@@ -259,7 +274,7 @@ function renderProject(project, container) {
     details.append(element("span", "repo-unavailable", project.repoNote));
   }
 
-  view.append(visual, details);
+  view.append(details);
   container.append(view);
 }
 
@@ -444,9 +459,9 @@ function runCommand(rawCommand) {
     return;
   }
   if (result.type === "help") {
-    appendTerminalLine("help · whoami · about · projects [siga|petclean|vozes]");
+    appendTerminalLine("help · whoami · about · projects [taskflow|easy-delivery|lexia]");
     appendTerminalLine("experience · stack · contact · architecture · clear");
-    appendTerminalLine("open <arquivo> também aceita about.md, stack.json ou projects/PetClean.json.", "terminal-muted");
+    appendTerminalLine("open <arquivo> também aceita about.md, stack.json ou projects/EasyDelivery.json.", "terminal-muted");
     return;
   }
   if (result.type === "whoami") {

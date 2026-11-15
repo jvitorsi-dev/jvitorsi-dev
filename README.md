@@ -1,53 +1,59 @@
-<p align="right"><sub>JV.DEV &nbsp;·&nbsp; ENGINEERING PORTFOLIO</sub></p>
+<p align="right"><sub>JV.DEV &nbsp;·&nbsp; PROFILE / README.md</sub></p>
 
-<h1>João Vitor</h1>
-<p><strong>Software Developer · .NET &amp; Backend</strong><br />
-<sub>Full Stack · WebGIS · Análise e Desenvolvimento de Sistemas / FATEC</sub></p>
+# João Vitor
 
-<p>Procuro entender o percurso do dado e as regras do sistema antes de escolher a ferramenta.</p>
+**Software Developer · Backend .NET/C# &amp; Full Stack**<br />
+<sub>Análise e Desenvolvimento de Sistemas · FATEC · Santo André, SP</sub>
 
-<p><img src="assets/developer-lab-hero.jpg" alt="Arte autoral de um ambiente de desenvolvimento noturno com terminal, mapa geoespacial e diagrama abstrato" width="100%" /></p>
+Gosto de entender o fluxo e as regras de um sistema antes de escolher a abstração. Meu foco é backend, com interesse em produtos full-stack, dados e integração.
 
-<!-- Terminal visual estático: o README não executa JavaScript nem comandos. -->
-<div align="right">
-<pre><code>joao@jv.dev:~$ profile
-focus   .NET / C# · backend
-context APIs · data · geospatial
-approach understand → model → build</code></pre>
-</div>
+<!-- Bloco de terminal apenas visual: README não executa comandos nem JavaScript. -->
+```bash
+joao@jv.dev:~$ whoami
+João Vitor · Software Developer
+joao@jv.dev:~$ focus
+Backend .NET/C# · Full Stack
+joao@jv.dev:~$ context
+APIs · WebGIS · engenharia de software
+```
 
-<p align="center">
-  <a href="https://jvitorsi-dev.github.io/jvitorsi-dev/"><strong>Miniportfólio interativo</strong></a><br />
-  <sub>URL prevista para GitHub Pages · publicação ainda não habilitada</sub>
-</p>
+<p align="center"><a href="https://jvitorsi-dev.github.io/jvitorsi-dev/"><strong>ABRIR JV.DEV — WORKSPACE INTERATIVO ↗</strong></a></p>
 
-## Sobre
+## `projects/` · em destaque
 
-Desenvolvedor com foco em backend .NET/C# e atuação Full Stack. Estudante de Análise e Desenvolvimento de Sistemas na FATEC. Minha experiência profissional envolve desenvolvimento e manutenção de sistemas em contexto municipal, incluindo geoprocessamento, WebGIS e dados espaciais.
+### `TaskFlow` — engenharia backend
 
-## Projetos
+API REST para gerenciamento de projetos, tarefas e usuários em **ASP.NET Core / .NET 10**. As camadas Domain, Application, Infrastructure, API e Tests seguem uma arquitetura inspirada em Clean Architecture; a persistência usa **EF Core e SQL Server**. Um Worker processa eventos de conclusão via **MassTransit Outbox e RabbitMQ**. Testes xUnit cobrem camadas do sistema.
 
-Projetos profissionais, acadêmicos e autorais estão identificados como tal. Uso capturas reais quando disponíveis; a arte do SIGA-Rotas é apenas conceitual.
+<sub>O branch público `master` contém a API e o Worker; não encontrei código Angular ou captura de interface, então não apresento um frontend como entregue.</sub> · [Repositório ↗](https://github.com/jvitorsi-dev/TaskFlow)
 
-| Projeto | Contexto e escopo | Evidência |
-| --- | --- | --- |
-| **SIGA-Rotas** · experiência profissional | Planejamento e acompanhamento de rotas com geolocalização e otimização, conforme resumo informado pelo autor. O repositório indicado não está acessível publicamente; stack e detalhes internos não são inferidos. | <img src="assets/route-concept.svg" alt="Ilustração conceitual de uma rota sobre uma malha geográfica; não é uma captura do SIGA-Rotas" width="150" /><br /><sub>Ilustração conceitual</sub> |
-| **[PetClean](https://github.com/jvitorsi-dev/PetClean)** · projeto acadêmico | **Estado:** repositório público. Reúne gestão de clientes, pets, agendamentos, estoque e dashboards. Java, Spring Boot, Spring Data JPA, H2, Thymeleaf e JUnit. | <a href="https://github.com/jvitorsi-dev/PetClean"><img src="https://raw.githubusercontent.com/jvitorsi-dev/PetClean/88dc1437edaf0794e9863b56764a1ce430bb12d1/docs/apresentacao/assets/dash-popy.png" alt="Captura real do dashboard do PetClean" width="150" /></a> |
-| **[Vozes do Oceano](https://github.com/jvitorsi-dev/vozes-do-oceano)** · projeto autoral, em desenvolvimento | Jogo de exploração e investigação narrativa em primeira pessoa, com estados e anomalias contextuais. Godot 4.4, GDScript e shaders. | <a href="https://github.com/jvitorsi-dev/vozes-do-oceano"><img src="https://raw.githubusercontent.com/jvitorsi-dev/vozes-do-oceano/09616dc4f7f18e2cf55e228caf615b75dadbc1c9/docs/capturas/06-oceano-de-irio.png" alt="Captura real do oceano de Írio em Vozes do Oceano" width="150" /></a> |
+### `Easy Delivery` — produto full-stack
 
-## Tecnologias
+<p><img align="right" src="assets/easydelivery-logo.png" alt="Logomarca do Easy Delivery; não é uma captura da aplicação" width="145" /></p>
 
-- **Backend:** C#, .NET, .NET Framework, APIs REST
-- **Frontend:** JavaScript, HTML, CSS
-- **Database:** SQL Server, Oracle, PL/SQL
+Fluxo de pedidos para restaurantes com **API ASP.NET Core / .NET 10** e **frontend Angular 21**. O código cobre navegação de restaurantes e cardápios, carrinho, operação de pedidos pelo restaurante e aceite/conclusão de entregas. O backend cria preferências e recebe notificações de pagamento do **Mercado Pago**, com autenticação JWT e persistência EF Core / SQL Server.
+
+<sub>A imagem é a logomarca publicada no repositório, não uma captura do produto. O workflow de CD atual simula o deploy; não encontrei uma demo hospedada.</sub> · [Repositório ↗](https://github.com/jvitorsi-dev/EasyDelivery)
+
+### `LexIA` — experimentação com RAG
+
+Assistente backend para pesquisa em legislação municipal. O pipeline extrai texto de PDF com **PdfPig**, divide o conteúdo por artigo, gera embeddings e recupera trechos por similaridade; uma barreira de relevância evita chamar o modelo quando a base não oferece suporte suficiente. O prompt orienta a responder com referências à lei e ao artigo recuperados.
+
+API Minimal e CLI; armazenamento local JSON ou **PostgreSQL / pgvector**. A configuração padrão usa Gemini por um adaptador compatível com a API OpenAI. Interface Angular, streaming, busca híbrida, avaliações e deploy aparecem no README do projeto como próximos passos — não como funcionalidades concluídas. Não há captura pública. · [Repositório ↗](https://github.com/jvitorsi-dev/lexia)
+
+## Stack · por contexto
+
+- **Backend:** C#, .NET, ASP.NET Core, .NET Framework, APIs REST, Entity Framework Core
+- **Frontend:** Angular, TypeScript, JavaScript, HTML, CSS
+- **Database:** SQL Server, Oracle, PL/SQL, PostgreSQL, pgvector
 - **Geospatial:** OpenLayers, GeoServer, Cesium, ECharts
-- **Tools:** Git, GitHub
+- **Tools:** Git, GitHub, Swagger / OpenAPI, xUnit, Moq
 
-Tecnologias agrupadas por contexto; não representam uma escala uniforme de domínio.
+Tecnologias agrupadas por contexto de uso; sem níveis artificiais de proficiência.
 
 ## Experiência
 
-**Secretaria de Tecnologia e Inovação · Prefeitura de Santo André** — desenvolvimento e manutenção de sistemas municipais, com atuação em geoprocessamento, WebGIS, dashboards geográficos, integração de serviços, bancos relacionais e sistemas legados. A descrição permanece em alto nível e não inclui dados, código ou detalhes internos.
+**Secretaria de Tecnologia e Inovação · Prefeitura de Santo André** — desenvolvimento e manutenção de sistemas municipais, com atuação em geoprocessamento, WebGIS, dashboards geográficos, integração de serviços, bancos de dados e sistemas legados. A descrição permanece em alto nível e não expõe informações internas.
 
 ## Contato
 
