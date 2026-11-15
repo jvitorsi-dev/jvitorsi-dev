@@ -1,0 +1,153 @@
+{
+  "profile": {
+    "name": "João Vitor",
+    "role": "Software Developer | .NET & Backend",
+    "focus": "Backend .NET/C# · Full Stack",
+    "location": "Santo André, SP",
+    "tagline": "Antes de escolher a ferramenta, procuro entender o percurso do dado e as regras que o sistema precisa respeitar.",
+    "summary": "Desenvolvedor com foco em backend .NET/C# e atuação Full Stack. Estudante de Análise e Desenvolvimento de Sistemas na FATEC."
+  },
+  "about": {
+    "title": "Um laboratório para engenharia aplicada",
+    "paragraphs": [
+      "Trabalho com sistemas que precisam continuar compreensíveis enquanto evoluem: APIs, regras de negócio, dados e interfaces fazem parte do mesmo fluxo.",
+      "Minha experiência profissional inclui desenvolvimento e manutenção de sistemas municipais, geoprocessamento, WebGIS, dashboards geográficos, integrações, bancos relacionais e sistemas legados.",
+      "Fora desse contexto, uso projetos acadêmicos e autorais para estudar arquitetura, integração e construção de software de ponta a ponta."
+    ],
+    "principle": "Entender o fluxo primeiro. Escolher a abstração depois."
+  },
+  "projects": [
+    {
+      "id": "siga-rotas",
+      "file": "SIGA-Rotas.json",
+      "title": "SIGA-Rotas",
+      "category": "Experiência profissional · Prefeitura de Santo André",
+      "status": "Resumo de alto nível",
+      "description": "Aplicação municipal para planejamento e acompanhamento de rotas, com geolocalização e otimização, conforme a descrição fornecida pelo autor.",
+      "problem": "Apoiar o planejamento e o acompanhamento de rotas com informação geográfica.",
+      "objective": "Relacionar rotas, localização e acompanhamento em um contexto municipal.",
+      "technologyNote": "A stack específica não é atribuída: não há código ou repositório público acessível para verificá-la.",
+      "technologies": [],
+      "repoUrl": null,
+      "repoNote": "O repositório indicado não está acessível publicamente no momento da análise.",
+      "image": "assets/route-concept.svg",
+      "imageAlt": "Ilustração abstrata de uma rota sobre uma malha geográfica; não representa uma tela do SIGA-Rotas.",
+      "imageKind": "conceitual"
+    },
+    {
+      "id": "petclean",
+      "file": "PetClean.json",
+      "title": "PetClean",
+      "category": "Projeto acadêmico",
+      "status": "Repositório público",
+      "description": "Sistema de gestão para pet shop desenvolvido como projeto acadêmico, com API REST e painel web.",
+      "problem": "Reunir rotinas de clientes, pets, agendamentos, estoque e acompanhamento em dashboards.",
+      "objective": "Implementar histórias de usuário de gestão de pet shop em uma aplicação com API e interface web.",
+      "features": [
+        "Cadastro e consulta de clientes e pets",
+        "Agendamentos com validações e conflito de horários",
+        "Controle e movimentação de estoque",
+        "Dashboards com indicadores e períodos",
+        "Autenticação por sessão e proteção de rotas"
+      ],
+      "technologyNote": "Tecnologias descritas no README e presentes no repositório.",
+      "technologies": ["Java", "Spring Boot", "Spring Data JPA", "H2", "Thymeleaf", "JUnit"],
+      "repoUrl": "https://github.com/jvitorsi-dev/PetClean",
+      "repoNote": "Código, documentação e testes no repositório.",
+      "image": "https://raw.githubusercontent.com/jvitorsi-dev/PetClean/88dc1437edaf0794e9863b56764a1ce430bb12d1/docs/apresentacao/assets/dash-popy.png",
+      "imageAlt": "Captura do dashboard do PetClean publicada no repositório do projeto.",
+      "imageKind": "captura real"
+    },
+    {
+      "id": "vozes-do-oceano",
+      "file": "Vozes-do-Oceano.json",
+      "title": "Vozes do Oceano",
+      "category": "Projeto autoral experimental",
+      "status": "Em desenvolvimento · informado pelo autor",
+      "description": "Jogo em primeira pessoa de exploração e investigação narrativa em português, ambientado em uma estação orbital diante de um planeta-oceano.",
+      "problem": "Criar uma experiência interativa em que descobertas, decisões e atmosfera conduzem a exploração.",
+      "objective": "Construir uma narrativa sistêmica com estados persistentes e manifestações que respondem ao contexto da partida.",
+      "features": [
+        "Estado de jogo com decisões, descobertas e progressão narrativa",
+        "Anomalias contextuais ligadas ao local e ao que o jogador já viu",
+        "Cenários e efeitos visuais procedurais"
+      ],
+      "technologyNote": "Tecnologias identificadas no README e na estrutura de código do repositório.",
+      "technologies": ["Godot 4.4", "GDScript", "Shaders"],
+      "repoUrl": "https://github.com/jvitorsi-dev/vozes-do-oceano",
+      "repoNote": "Repositório público com código, documentação e capturas do jogo.",
+      "image": "https://raw.githubusercontent.com/jvitorsi-dev/vozes-do-oceano/09616dc4f7f18e2cf55e228caf615b75dadbc1c9/docs/capturas/06-oceano-de-irio.png",
+      "imageAlt": "Captura real do oceano de Írio dentro do jogo Vozes do Oceano.",
+      "imageKind": "captura real"
+    }
+  ],
+  "experience": {
+    "organization": "Secretaria de Tecnologia e Inovação · Prefeitura de Santo André",
+    "summary": "Desenvolvimento e manutenção de sistemas utilizados em contexto municipal.",
+    "areas": [
+      "Geoprocessamento e WebGIS",
+      "Dashboards geográficos e visualização de dados espaciais",
+      "Integração de serviços",
+      "Bancos de dados relacionais",
+      "Manutenção de sistemas legados e resolução de problemas reais"
+    ],
+    "privacy": "A apresentação não inclui código, dados ou detalhes internos de infraestrutura municipal."
+  },
+  "stack": [
+    {
+      "category": "Backend",
+      "items": ["C#", ".NET", ".NET Framework", "APIs REST"]
+    },
+    {
+      "category": "Frontend",
+      "items": ["JavaScript", "HTML", "CSS"]
+    },
+    {
+      "category": "Database",
+      "items": ["SQL Server", "Oracle", "PL/SQL"]
+    },
+    {
+      "category": "Geospatial",
+      "items": ["OpenLayers", "GeoServer", "Cesium", "ECharts"]
+    },
+    {
+      "category": "Tools",
+      "items": ["Git", "GitHub"]
+    }
+  ],
+  "architecture": {
+    "note": "Representação conceitual para explicar componentes comuns; não descreve a arquitetura de um projeto específico nem de sistemas municipais.",
+    "components": [
+      {
+        "id": "frontend",
+        "label": "Frontend",
+        "role": "Apresenta dados, permite interações e envia solicitações para a API."
+      },
+      {
+        "id": "api",
+        "label": "API REST",
+        "role": "Valida contratos HTTP e encaminha operações para os casos de uso."
+      },
+      {
+        "id": "domain",
+        "label": "Regras de negócio",
+        "role": "Concentra decisões e invariantes do domínio, sem depender da interface."
+      },
+      {
+        "id": "database",
+        "label": "Persistência",
+        "role": "Armazena e consulta dados por meio de contratos de repositório."
+      },
+      {
+        "id": "geospatial",
+        "label": "Serviços geoespaciais",
+        "role": "Oferece operações e camadas espaciais que podem alimentar uma experiência WebGIS."
+      }
+    ]
+  },
+  "contact": {
+    "github": "https://github.com/jvitorsi-dev",
+    "linkedin": "https://www.linkedin.com/in/joao-vitor-silva-85a1a3390",
+    "email": "jvitorsi.dev@gmail.com"
+  }
+}
