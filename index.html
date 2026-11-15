@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#090d0f" />
+    <meta name="description" content="JV.DEV — portfólio interativo de João Vitor, desenvolvedor com foco em backend .NET/C#, Full Stack e sistemas geoespaciais." />
+    <title>JV.DEV — Interactive Engineering Portfolio</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="JV.DEV — início">
+        <span class="brand-mark" aria-hidden="true">JV</span>
+        <span class="brand-name">JV<span>.DEV</span></span>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-caption">Interactive Engineering Portfolio</span>
+      </a>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Navegação principal">
+        <button class="nav-link is-active" type="button" data-file="about" aria-current="page">Lab</button>
+        <button class="nav-link" type="button" data-file="projects">Projetos</button>
+        <button class="nav-link" type="button" data-file="experience">Experiência</button>
+        <button class="nav-link" type="button" data-file="stack">Toolbox</button>
+      </nav>
+
+      <div class="header-links">
+        <a href="https://github.com/jvitorsi-dev" target="_blank" rel="noreferrer" aria-label="Abrir perfil GitHub">GitHub <span aria-hidden="true">↗</span></a>
+        <a href="https://www.linkedin.com/in/joao-vitor-silva-85a1a3390" target="_blank" rel="noreferrer" aria-label="Abrir perfil LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero page-width" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> DEVELOPER LAB <span class="eyebrow-separator">/</span> SANTO ANDRÉ, BR</p>
+          <h1 id="hero-title">João Vitor<span class="title-period">.</span></h1>
+          <p class="hero-role">Software Developer <span>|</span> <strong>.NET &amp; Backend</strong></p>
+          <p class="hero-tagline">Antes de escolher a ferramenta, procuro entender o percurso do dado e as regras que o sistema precisa respeitar.</p>
+          <div class="hero-actions">
+            <button class="button button-primary" type="button" data-file="projects">Explorar projetos <span aria-hidden="true">↓</span></button>
+            <button class="button button-quiet" type="button" data-file="experience">Ver experiência <span aria-hidden="true">↗</span></button>
+          </div>
+          <p class="hero-context"><span>Foco</span> Backend .NET/C# <span class="context-divider">·</span> Full Stack <span class="context-divider">·</span> WebGIS</p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="visual-frame-label"><span>PROFILE / VISUAL</span><span>STATIC ARTWORK</span></div>
+          <img src="./assets/developer-lab-hero.jpg" alt="Ilustração de um ambiente de desenvolvimento noturno: terminal, diagrama abstrato, mapa geoespacial e cidade ao fundo." width="1792" height="592" fetchpriority="high" />
+          <div class="visual-frame-foot"><span>GRAPHITE / EMERALD / CYAN</span><span>ENGINEERING / NOTES</span></div>
+        </div>
+      </section>
+
+      <section class="workspace-section page-width" id="lab" aria-labelledby="workspace-title">
+        <div class="section-heading section-heading-compact">
+          <div>
+            <p class="eyebrow">01 <span class="eyebrow-separator">/</span> WORKSPACE</p>
+            <h2 id="workspace-title">Uma trajetória em arquivos.</h2>
+          </div>
+          <p class="section-note">Explore pelo Explorer ou digite um comando no terminal.</p>
+        </div>
+
+        <div class="workspace-shell">
+          <div class="window-bar" aria-hidden="true">
+            <div class="window-controls"><span></span><span></span><span></span></div>
+            <div class="window-title">jv.dev — portfolio workspace</div>
+            <div class="window-state"><span class="status-dot"></span> LOCAL SESSION</div>
+          </div>
+
+          <details class="mobile-explorer" id="mobile-explorer">
+            <summary><span>PROJECT EXPLORER</span><span class="summary-hint">selecionar arquivo</span></summary>
+            <nav class="mobile-file-list" aria-label="Arquivos do portfólio em dispositivos móveis">
+              <button type="button" data-file="about">about.md</button>
+              <button type="button" data-file="projects">projects/</button>
+              <button type="button" data-file="project-siga">SIGA-Rotas.json</button>
+              <button type="button" data-file="project-petclean">PetClean.json</button>
+              <button type="button" data-file="project-vozes">Vozes-do-Oceano.json</button>
+              <button type="button" data-file="experience">experience.md</button>
+              <button type="button" data-file="stack">stack.json</button>
+              <button type="button" data-file="contact">contact.json</button>
+            </nav>
+          </details>
+
+          <div class="workspace-grid">
+            <aside class="explorer" aria-label="Project Explorer">
+              <div class="explorer-heading"><span>EXPLORER</span><span aria-hidden="true">•••</span></div>
+              <div class="workspace-root"><span class="chevron" aria-hidden="true">⌄</span> JV.DEV</div>
+              <nav class="file-tree" aria-label="Arquivos do portfólio">
+                <button class="tree-item is-active" type="button" data-file="about"><span class="file-icon icon-md">M</span><span>about.md</span></button>
+                <details class="tree-folder" open>
+                  <summary><span class="chevron" aria-hidden="true">⌄</span><span class="folder-icon" aria-hidden="true">▰</span> projects</summary>
+                  <div class="folder-contents">
+                    <button class="tree-item" type="button" data-file="project-siga"><span class="file-icon icon-json">{ }</span><span>SIGA-Rotas.json</span></button>
+                    <button class="tree-item" type="button" data-file="project-petclean"><span class="file-icon icon-json">{ }</span><span>PetClean.json</span></button>
+                    <button class="tree-item" type="button" data-file="project-vozes"><span class="file-icon icon-json">{ }</span><span>Vozes-do-Oceano.json</span></button>
+                  </div>
+                </details>
+                <button class="tree-item" type="button" data-file="experience"><span class="file-icon icon-md">M</span><span>experience.md</span></button>
+                <button class="tree-item" type="button" data-file="stack"><span class="file-icon icon-json">{ }</span><span>stack.json</span></button>
+                <button class="tree-item" type="button" data-file="contact"><span class="file-icon icon-json">{ }</span><span>contact.json</span></button>
+              </nav>
+              <div class="explorer-footer"><span class="status-dot"></span> PORTFOLIO / READ ONLY</div>
+            </aside>
+
+            <section class="editor-panel" aria-label="Editor de arquivos">
+              <div class="tab-strip" id="file-tabs" role="tablist" aria-label="Abas abertas">
+                <button class="editor-tab is-active" id="file-tab-about" type="button" role="tab" aria-selected="true" aria-controls="file-content" data-tab-file="about"><span class="file-icon icon-md">M</span> about.md</button>
+              </div>
+              <div class="editor-crumbs"><span>JV.DEV</span><span aria-hidden="true">›</span><span id="current-file-path">about.md</span><span class="editor-language" id="editor-language">Markdown</span></div>
+              <div class="editor-content" id="file-content" role="tabpanel" tabindex="0" aria-labelledby="file-tab-about" aria-live="polite" aria-label="Conteúdo do arquivo selecionado">
+                <p class="loading-state">Abrindo workspace…</p>
+              </div>
+              <div class="editor-statusline" aria-hidden="true"><span>Ln 1, Col 1</span><span>UTF-8</span><span>Portfolio / Read only</span></div>
+            </section>
+          </div>
+
+          <details class="terminal-panel" id="terminal-panel">
+            <summary class="terminal-heading"><span><span class="terminal-symbol" aria-hidden="true">⌁</span> TERMINAL</span><span class="terminal-heading-right"><span class="terminal-live"><span class="status-dot"></span> INTERACTIVE</span><span class="terminal-toggle-label">abrir / recolher</span></span></summary>
+            <div class="terminal-body">
+              <div class="terminal-output" id="terminal-output" role="log" aria-live="polite" aria-relevant="additions text">
+                <p class="terminal-line terminal-muted">JV.DEV shell · comandos locais, sem execução de código arbitrário.</p>
+                <p class="terminal-line">Digite <code>help</code> para ver os comandos disponíveis.</p>
+              </div>
+              <form class="terminal-form" id="terminal-form" autocomplete="off">
+                <label class="visually-hidden" for="terminal-input">Comando do terminal</label>
+                <span class="terminal-prompt" aria-hidden="true">jv.dev <b>$</b></span>
+                <input id="terminal-input" name="command" type="text" placeholder="help" spellcheck="false" autocomplete="off" autocapitalize="off" aria-describedby="terminal-hint" />
+                <span class="terminal-cursor" aria-hidden="true"></span>
+                <span class="visually-hidden" id="terminal-hint">Pressione Enter para executar o comando. Use as setas para navegar no histórico.</span>
+              </form>
+            </div>
+          </details>
+
+          <div class="workspace-statusbar"><span><span class="status-dot"></span> READY</span><span>PORTFOLIO DATA / JSON</span><span>STATIC · NO BACKEND</span></div>
+        </div>
+      </section>
+
+      <section class="engineering-section page-width" id="engineering" aria-labelledby="engineering-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">02 <span class="eyebrow-separator">/</span> ENGINEERING</p>
+            <h2 id="engineering-title">Componentes, contratos, fluxo.</h2>
+          </div>
+          <p class="section-note">Diagrama conceitual. Não representa a arquitetura de um projeto específico.</p>
+        </div>
+
+        <div class="architecture-layout">
+          <div class="architecture-canvas" aria-label="Diagrama interativo de arquitetura conceitual">
+            <svg class="architecture-svg" viewBox="0 0 960 310" role="group" aria-labelledby="architecture-svg-title architecture-svg-desc">
+              <title id="architecture-svg-title">Arquitetura conceitual de uma aplicação</title>
+              <desc id="architecture-svg-desc">Frontend envia requisições para uma API, que coordena regras de negócio, persistência e serviços geoespaciais. Selecione um componente para ler sua função.</desc>
+              <defs>
+                <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L7,3 z" fill="#49d7b0"></path>
+                </marker>
+              </defs>
+              <path class="architecture-link" d="M178 136 H272" marker-end="url(#arrowhead)"></path>
+              <path class="architecture-link" d="M398 136 H492" marker-end="url(#arrowhead)"></path>
+              <path class="architecture-link" d="M620 122 C680 122 672 66 732 66" marker-end="url(#arrowhead)"></path>
+              <path class="architecture-link architecture-link-cyan" d="M620 150 C680 150 672 232 732 232" marker-end="url(#arrowhead)"></path>
+
+              <g class="architecture-node is-selected" data-component="frontend" tabindex="0" role="button" aria-pressed="true" aria-label="Frontend: apresentar informação e captar interações">
+                <rect x="42" y="96" width="136" height="80" rx="10"></rect>
+                <text x="110" y="131" text-anchor="middle" class="node-title">Frontend</text>
+                <text x="110" y="153" text-anchor="middle" class="node-subtitle">web / mapa</text>
+              </g>
+              <g class="architecture-node" data-component="api" tabindex="0" role="button" aria-pressed="false" aria-label="API REST: receber e encaminhar solicitações">
+                <rect x="272" y="96" width="126" height="80" rx="10"></rect>
+                <text x="335" y="131" text-anchor="middle" class="node-title">API REST</text>
+                <text x="335" y="153" text-anchor="middle" class="node-subtitle">contratos</text>
+              </g>
+              <g class="architecture-node" data-component="domain" tabindex="0" role="button" aria-pressed="false" aria-label="Regras de negócio: aplicar casos de uso e invariantes">
+                <rect x="492" y="96" width="128" height="80" rx="10"></rect>
+                <text x="556" y="131" text-anchor="middle" class="node-title">Domínio</text>
+                <text x="556" y="153" text-anchor="middle" class="node-subtitle">regras / casos</text>
+              </g>
+              <g class="architecture-node" data-component="database" tabindex="0" role="button" aria-pressed="false" aria-label="Persistência: armazenar e consultar dados">
+                <rect x="732" y="28" width="164" height="76" rx="10"></rect>
+                <text x="814" y="61" text-anchor="middle" class="node-title">Persistência</text>
+                <text x="814" y="83" text-anchor="middle" class="node-subtitle">SQL / repositórios</text>
+              </g>
+              <g class="architecture-node" data-component="geospatial" tabindex="0" role="button" aria-pressed="false" aria-label="Serviços geoespaciais: fornecer operações e camadas espaciais">
+                <rect x="732" y="194" width="164" height="76" rx="10"></rect>
+                <text x="814" y="227" text-anchor="middle" class="node-title">Geoespacial</text>
+                <text x="814" y="249" text-anchor="middle" class="node-subtitle">serviços / camadas</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="architecture-mobile" aria-label="Fluxo conceitual em formato móvel">
+            <button type="button" class="architecture-mobile-node is-selected" data-component="frontend" aria-pressed="true"><span>01</span> Frontend</button>
+            <span class="mobile-flow-arrow" aria-hidden="true">↓</span>
+            <button type="button" class="architecture-mobile-node" data-component="api" aria-pressed="false"><span>02</span> API REST</button>
+            <span class="mobile-flow-arrow" aria-hidden="true">↓</span>
+            <button type="button" class="architecture-mobile-node" data-component="domain" aria-pressed="false"><span>03</span> Regras de negócio</button>
+            <div class="mobile-flow-branches"><button type="button" class="architecture-mobile-node" data-component="database" aria-pressed="false"><span>04a</span> Persistência</button><button type="button" class="architecture-mobile-node" data-component="geospatial" aria-pressed="false"><span>04b</span> Serviços geoespaciais</button></div>
+          </div>
+
+          <aside class="architecture-detail" id="architecture-detail" aria-live="polite" aria-atomic="true">
+            <p class="eyebrow">COMPONENT INSPECTOR</p>
+            <h3 id="architecture-detail-title">Frontend</h3>
+            <p id="architecture-detail-copy">Apresenta dados, permite interações e envia solicitações para a API.</p>
+            <span class="detail-hint">Selecione qualquer nó do diagrama.</span>
+          </aside>
+        </div>
+      </section>
+
+      <section class="closing-section page-width" aria-label="Experiência e contato">
+        <div class="closing-note">
+          <p class="eyebrow">FIELD NOTES / EXPERIENCE</p>
+          <p>Experiência em sistemas municipais, geoprocessamento, WebGIS, integrações, dados relacionais e manutenção de sistemas legados.</p>
+          <button type="button" class="text-link" data-file="experience">Abrir experience.md <span aria-hidden="true">↗</span></button>
+        </div>
+        <div class="closing-contact">
+          <p class="eyebrow">CONNECT</p>
+          <a href="https://github.com/jvitorsi-dev" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="https://www.linkedin.com/in/joao-vitor-silva-85a1a3390" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a href="mailto:jvitorsi.dev@gmail.com">Email <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer page-width">
+      <span>JV.DEV <span class="footer-divider">/</span> Interactive Engineering Portfolio</span>
+      <span>Static by design <span class="footer-divider">·</span> Built with HTML, CSS &amp; JavaScript</span>
+    </footer>
+
+    <noscript><div class="noscript-note">A exploração por arquivos e o terminal precisam de JavaScript habilitado. Acesse diretamente os projetos públicos: <a href="https://github.com/jvitorsi-dev/PetClean" rel="noopener noreferrer">PetClean</a> e <a href="https://github.com/jvitorsi-dev/vozes-do-oceano" rel="noopener noreferrer">Vozes do Oceano</a>; ou visite o <a href="https://github.com/jvitorsi-dev" rel="noopener noreferrer">perfil no GitHub</a>.</div></noscript>
+  </body>
+</html>
